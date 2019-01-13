@@ -3,6 +3,14 @@
 
 int gridX, gridY;
 
+struct map_unit {
+	int id;
+	char N;
+	char S;
+	char W;
+	char E;
+};
+
 void initGrid(int x, int y) {
 	gridX = x;
 	gridY = y;
@@ -10,10 +18,10 @@ void initGrid(int x, int y) {
 }
 
 void drawGrid() {
-	unit(6, 6);
+	graphic_unit(2, 2);
 }
 
-void unit(int x, int y) { /**Mudar aqui a imagem para cada unidade do jogo*/
+void graphic_unit(int x, int y) { /**Mudar aqui a imagem para cada unidade do jogo*/
 	/*!
 	@brief Cria uma unidade grafica do tabuleiro do jogo
 	@param x posicao x no tabuleiro da peca

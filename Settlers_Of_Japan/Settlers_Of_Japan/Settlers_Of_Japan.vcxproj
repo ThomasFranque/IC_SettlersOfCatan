@@ -78,6 +78,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>C:\Users\Daniel\Desktop\ulht\Computacao\IC_SettlersOfCatan\OpenGL_Setup_Files-master\glew-1.11.0\lib\glew32.lib;C:\Users\Daniel\Desktop\ulht\Computacao\IC_SettlersOfCatan\OpenGL_Setup_Files-master\freeglut\lib\freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -122,9 +123,11 @@
   <ItemGroup>
     <ClCompile Include="game.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="fad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="fad.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
