@@ -1,6 +1,0 @@
-﻿  game.c
-c:\users\daniel\desktop\ulht\computacao\ic_settlersofcatan\settlers_of_japan\settlers_of_japan\game.c(27): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\daniel\desktop\ulht\computacao\ic_settlersofcatan\settlers_of_japan\settlers_of_japan\game.c(28): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\daniel\desktop\ulht\computacao\ic_settlersofcatan\settlers_of_japan\settlers_of_japan\game.c(29): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\daniel\desktop\ulht\computacao\ic_settlersofcatan\settlers_of_japan\settlers_of_japan\game.c(30): warning C4244: 'function': conversion from 'int' to 'GLfloat', possible loss of data
-  Settlers_Of_Japan.vcxproj -> C:\Users\Daniel\Desktop\ulht\Computacao\IC_SettlersOfCatan\Settlers_Of_Japan\Debug\Settlers_Of_Japan.exe
