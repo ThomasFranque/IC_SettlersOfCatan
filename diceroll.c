@@ -1,14 +1,15 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "time.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-/* FALTA ALTERAR PARA PODER SER CHAMADO NOUTRO SITIO */
-
-int main () {
-	int i, n, x,finalNumber, dices[2];
+int roll (int number_of_dices) {
+	int i, n, x,finalNumber;
+	int *dices;
 	time_t t;
 	
-	n = 2; /* qts numeros queremos gerar */
+	dices = malloc(number_of_dices * sizeof(int));
+	
+	n = number_of_dices; /* qts numeros queremos gerar */
 	x = 6; /* Numero de lados */
 	
 	/* init */
@@ -28,5 +29,6 @@ int main () {
 	finalNumber = dices[0] + dices[1];
 	printf("Final number is: %d\n", finalNumber);
 	
+	free(dices);
 	return finalNumber;
 }
