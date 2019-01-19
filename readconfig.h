@@ -21,9 +21,9 @@ typedef struct{
 } MAP_CONFIG;
 
 
-
-void set_config_val(CONFIG *config, UNIT *map_unit const char *key, int val);
+/**DECLARACAO DAS FUNCOES EM READCONFIG.C*/
+void set_config_val(MAP_CONFIG *config, const char *key, int val);
 void set_unit_val(UNIT *map_unit, char *key, int val);
-void read_config(CONFIG *config,UNIT *map_unit, FILE *f);
+void read_config(MAP_CONFIG *config, FILE *f);
 
 #endif

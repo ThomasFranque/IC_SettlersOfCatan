@@ -75,7 +75,7 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 	world = malloc(sizeof(MAP_CONFIG));
 	world->grid = calloc(world.xdim * world.ydim, sizeof(UNIT));
 	
-	while (fgets(str, MAX, f) != NULL) {
+	while (fgets(str, MAX, f) != NULL) { /**Le uma segunda vez a file para atribuir os valores a cada unidade do mapa*/
 		if (strchr(str, ";"))
 			;
 		else if (strchr(str, "=")) {
@@ -88,9 +88,9 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 			token = strtok(NULL, delim);
 			value = atoi(token);
 			
-			if (strcmp(varname, "N")==0)
+			if (strcmp(varname, "N")==0) /**Conta em que unidade do mapa esta, cada unidade so tem um N um S, E,W*/
 				counter += 1;
-			set_unit_val(world.grid[counter -1], varname, value);
+			set_unit_val(world.grid[counter -1], varname, value);/**Atribui os valores as unidades corretas*/
 		}
 	}
 	fclose(f);
