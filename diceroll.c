@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-int roll (int number_of_dices) {
+int roll () {
 	int i, n, x,finalNumber;
 	int *dices;
 	time_t t;
 	
-	dices = malloc(number_of_dices * sizeof(int));
+	dices = malloc(2 * sizeof(int));
 	
-	n = number_of_dices; /* qts numeros queremos gerar */
+	n = 2; /* qts numeros queremos gerar */
 	x = 6; /* Numero de lados */
 	
 	/* init */
