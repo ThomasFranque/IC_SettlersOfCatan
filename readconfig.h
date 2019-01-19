@@ -15,7 +15,7 @@ typedef struct {
 }UNIT;
 
 typedef struct{
-	UNIT *grid;
+	UNIT *grid; /**Isto innicializa um apontador que contem UNITS*/
 	unsigned int xdim;
 	unsigned int ydim;
 } MAP_CONFIG;

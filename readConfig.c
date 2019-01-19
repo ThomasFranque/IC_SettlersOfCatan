@@ -73,7 +73,7 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 	}
 	
 	world = malloc(sizeof(MAP_CONFIG));
-	world->grid = calloc(world.xdim * world.ydim, sizeof(UNIT));
+	world->grid = calloc(world.xdim * world.ydim, sizeof(UNIT)); /**Isto aloca a grid com as estruturas UNIT la dentro*/
 	
 	while (fgets(str, MAX, f) != NULL) { /**Le uma segunda vez a file para atribuir os valores a cada unidade do mapa*/
 		if (strchr(str, ";"))
