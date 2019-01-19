@@ -13,8 +13,8 @@ gameCards[1] = grain
 
 
 
-int main {
-	int turnNumber = diceroll();
+int play () {
+	int turnNumber = roll();
 	int gameCards [4];
 	gameCards = [0,0,0,0];
 	if (turnNumber == adjacentNumbers[x][x]){
@@ -29,12 +29,31 @@ int main {
 				gameCards[3] += 1;
 			default:
 				break;
-		printf("you got +%d Wool, +%d Grain, +%d Log, +%d Steel", gameCards[0], gameCards[1], gameCards[2], gameCards[3])
-		return gameCards
+		printf("You got +%d Wool, +%d Grain, +%d Log, +%d Steel", gameCards[0], gameCards[1], gameCards[2], gameCards[3])
+		return gameCards;
 		
 	} else {
 		printf("No luck this time");
 		return 0;
 	}
 
+}
+
+int upgrades () {
+	
+}
+
+
+int bank () {
+	
+}
+
+
+int inventory () {
+	
+}
+
+
+int buy () {
+	
 }
