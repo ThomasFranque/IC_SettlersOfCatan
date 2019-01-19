@@ -3,7 +3,7 @@
 #define READCONFIG_H_INCLUDED
 #define MAX 128
 
-typedef struct { 
+typedef struct UNIT { 
 /**Estrutura da unidade do mapa, primeira posicao de cada array é uma letra, o resto um numero*/
 	char N[4];
 	char S[4];

@@ -38,8 +38,9 @@ void set_unit_val(UNIT *map_unit, const char *key, char *val){
 		strcmp(map_unit->W, val);
 	else if (strcmp(key, "E") == 0)
 		strcmp(map_unit->E, val);
-	else
+	else{
 		;
+	}
 }
 
 void read_config(MAP_CONFIG *config,FILE *f) {
@@ -69,7 +70,7 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 			token = strtok(NULL, delim);
 			value = atoi(token);
 
-			set_config_val(world, varname, value);
+			set_config_val(config, varname, value);
 		}
 	}
 	
@@ -91,7 +92,7 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 			
 			if (strcmp(varname, "N")==0) /**Conta em que unidade do mapa esta, cada unidade so tem um N um S, E,W*/
 				counter += 1;
-			set_unit_val(world->grid[counter -1], varname, value);/**Atribui os valores as unidades corretas*/
+			set_unit_val(world->grid[counter-1], varname, value);/**Atribui os valores as unidades corretas*/
 		}
 	}
 	fclose(f);
