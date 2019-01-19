@@ -1,15 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <windows.h>
-#include "game.h"
+#include "map.h"
 #include "fad.h"
 #include "readconfig.h"
 #define MAX 128
 
 int main(int argc, char **argv) {
-	int *grid;
-	CONFIG config;
+	MAP_CONFIG mapa;
 	FILE *f;
 	char *filename;
 	for (int i = 0; i < argc; i++)
@@ -24,11 +22,9 @@ int main(int argc, char **argv) {
 
 	f = abreFicheiro(filename, "r"); /**abre ficheiro atraves de funcao*/
 	/**RETIRAR TODA A INFORMACAO DO FICHEIRO AQUI*/
-	/**retirar dimensoes do board*/
-	read_config(&config, f);
-	grid = calloc(config.xdim, sizeof(int));
-	for (int i = 0; i < config.xdim; i++)
-		grid[i] = calloc(config.ydim, sizeof(int));
-	free(grid);
+	read_config(&mapa, f);
+	print_map(&mapa);
 
+	return 0;
+}
 

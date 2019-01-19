@@ -16,11 +16,12 @@ void set_config_val(MAP_CONFIG *config, const char *key, int val) {
 		config->xdim = val;
 	else if (strcmp(key, "ydim") == 0)
 		config->ydim = val;
-	else
+	else{
 		;
+	}
 }
 
-void set_unit_val(UNIT *map_unit, const char *key, int val){
+void set_unit_val(UNIT *map_unit, const char *key, char *val){
 	/**
 	Esta funcao faz o mesmo que a set_config_val mas serve para cada unidade do mapa
 	@param map_unit = Uma estrutura tipo UNIT para guardar os valores das 4 direcoes a volta lidas da INI
@@ -30,13 +31,13 @@ void set_unit_val(UNIT *map_unit, const char *key, int val){
 	if (map_unit ==NULL)/**Presumo que isto de erro pois As posicoes sao strings e nao sei se isto mete como apontador se nao ¯\_(?)_/¯*/
 		return;
 	if (strcmp(key, "N")== 0)
-		map_unit->N = val
+		strcmp(map_unit->N, val);
 	else if (strcmp(key, "S") == 0)
-		map_unit->S = val
+		strcmp(map_unit->S, val);
 	else if (strcmp(key, "W") == 0)
-		map_unit->W = val
+		strcmp(map_unit->W, val);
 	else if (strcmp(key, "E") == 0)
-		map_unit->E = val
+		strcmp(map_unit->E, val);
 	else
 		;
 }
@@ -80,7 +81,7 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 			;
 		else if (strchr(str, "=")) {
 			char varname[MAX];
-			int value;
+			char *value;
 
 			token = strtok(str, delim);
 			strcpy(varname, token);
@@ -90,7 +91,7 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 			
 			if (strcmp(varname, "N")==0) /**Conta em que unidade do mapa esta, cada unidade so tem um N um S, E,W*/
 				counter += 1;
-			set_unit_val(world.grid[counter -1], varname, value);/**Atribui os valores as unidades corretas*/
+			set_unit_val(world->grid[counter -1], varname, value);/**Atribui os valores as unidades corretas*/
 		}
 	}
 	fclose(f);

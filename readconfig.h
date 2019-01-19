@@ -1,6 +1,4 @@
 #include <stdio.h>
-
-#pragma once
 #ifndef READCONFIG_H_INCLUDED
 #define READCONFIG_H_INCLUDED
 #define MAX 128
@@ -23,7 +21,7 @@ typedef struct{
 
 /**DECLARACAO DAS FUNCOES EM READCONFIG.C*/
 void set_config_val(MAP_CONFIG *config, const char *key, int val);
-void set_unit_val(UNIT *map_unit, char *key, int val);
+void set_unit_val(UNIT *map_unit, char *key, char *val);
 void read_config(MAP_CONFIG *config, FILE *f);
 
 #endif
