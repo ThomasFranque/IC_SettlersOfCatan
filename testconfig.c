@@ -4,17 +4,16 @@
 #define MAX 32
 typedef struct UNIT { 
 /**Estrutura da unidade do mapa, primeira posicao de cada array é uma letra, o resto um numero*/
-	char N[4];
-	char S[4];
-	char W[4];
-	char E[4];
 	char Building;
+	char Material;
+	char E;
 }UNIT;
 
 typedef struct{
 	UNIT *grid; /**Isto innicializa um apontador que contem UNITS*/
 	unsigned int xdim;
 	unsigned int ydim;
+	char E[MAX];
 } MAP_CONFIG;
 
 void print_unit(){
@@ -64,29 +63,26 @@ FILE *openFile(char *nome, char *mode) {
 	return f;
 }
 
-void set_config_val(MAP_CONFIG *config, const char *key, int val) {
+void set_config_val(MAP_CONFIG *config, const char *key, char *val) {
 	/**
 	Esta funcao atribui a uma estrutura CONFIG o valor x e y do board
 	@param config = estrutura tipo MAP_CONFIG para xdim e ydim
 	@param Key = palavra chave do que se le da INI
 	@param val = valor que se vai atribuir a chave correspondente na estrutura
 	*/
-	if (config == NULL)
-		return;
-	if (strcmp(key, "xdim") == 0){
-		printf("here");
-		config->xdim = val;
+
+	if (strcmp(key,"xdim")== 0){
+		config->xdim = 4;
 	}
 	else if (strcmp(key, "ydim") == 0){
-		printf("here");
-		config->ydim = val;
+		config->ydim = atoi(val);
 	}
-	else{
-		;
+	else if (strcmp(key, "E")== 0){
+		strcpy(config->E, val);
 	}
 }
 
-void read_config(MAP_CONFIG *config,FILE *f) {
+MAP_CONFIG read_config(FILE *f) {
 	/**
 	Esta funcao e onde de facto os valores vao ser atribuidos e procurados, quando se quer ler um ficheiro INI so e necessario
 	chamar esta funcao com as estruturas pedidas.
@@ -94,38 +90,36 @@ void read_config(MAP_CONFIG *config,FILE *f) {
 	@param map_unit = Uma estrutura tipo UNIT para guardar os valores das 4 direcoes a volta lidas da INI
 	@param f = ficheiro INI de onde se vao ler os valores para atribuir as estruturas passadas a funcao
 	*/
+	MAP_CONFIG config;
 	char str[MAX];
 	char *token;
 	const char *delim = "=\n";
-	
+	char varname[MAX];
+	char value[MAX];
+
 	while (1) {
 		fgets(str, MAX, f);
 		if(feof(f)!= 0) break;
-		puts(str);
-		if (strchr(str, '=')!=NULL) {
-			char varname[MAX];
-			int value;
-
+		if (strchr(str, ';'))
+			;
+		else if (strchr(str, '=')) 
+		{
 			token = strtok(str, delim);
 			strcpy(varname, token);
-			printf("%s\n", token);
+			printf("%s\n", varname);
 			token = strtok(NULL, delim);
-			value = atoi(token);
-			printf("%s\n", token);
-			set_config_val(config, varname, value);
-			strcpy(token, "");
+			strcpy(value, token);
+			printf("%s\n", value);
+			set_config_val(&config, varname, value);
 		}
 	}
 	
-	config->grid = calloc(config->xdim * config->ydim, sizeof(UNIT)); /**Isto aloca a grid com as estruturas UNIT la dentro*/
-	
 	fclose(f);
-	return;
+	return config;
 }
 
 int main(int argc, char **argv) {
 	MAP_CONFIG map;
-	MAP_CONFIG *mapa = &map;
 	FILE *f;
 	char *filename;
 	for (int i = 0; i < argc; i++)
@@ -140,9 +134,10 @@ int main(int argc, char **argv) {
 
 	f = openFile(filename, "r"); /**abre ficheiro atraves de funcao*/
 	/**RETIRAR TODA A INFORMACAO DO FICHEIRO AQUI*/
-	read_config(mapa, f);
+	map = read_config(f);
 	printf("%d %d", map.xdim, map.ydim);
-	//print_map(&mapa);
-
+	printf("%s", map.E);
+	map.grid = calloc(map.xdim * map.ydim, sizeof(UNIT)); /**Isto aloca a grid com as estruturas UNIT la dentro*/
+	getchar();
 	return 0;
 }
