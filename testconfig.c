@@ -7,12 +7,12 @@ typedef struct{
 /**Estrutura da unidade do mapa, primeira posicao de cada array � uma letra, o resto um numero*/
 	char Building[2];
 	char Material[3];
+	int Player;
 }UNIT;
 
 typedef struct{
 	int xdim;
 	int ydim;
-	char E[MAX];
 } MAP_CONFIG;
 
 void print_unit(){
@@ -40,10 +40,10 @@ void print_unit(){
 }
 
 
-void print_map(MAP_CONFIG config){
-	for (int i = 0; i < config.xdim; i++){
+void print_map(int x, int y){
+	for (int i = 0; i < x; i++){
 		printf("\n");
-		for(int j = 0; i< config.ydim; j++);
+		for(int j = 0; i< y; j++);
 			print_unit();
 	}
 }
@@ -80,7 +80,6 @@ int main(int argc, char **argv) {
 	}
 	ini_free(config);
 /**Fecha o ficheiro*/
-
 	printf("%d %d\n", map.xdim, map.ydim);
 	for(int i = 0; i<map.ydim; i++){
 		printf("\n");
@@ -88,7 +87,7 @@ int main(int argc, char **argv) {
 			printf("%s ", grid[i*map.xdim +j].Material);
 		}
 	}
-	print_map(map);
+
 	getchar();
 	return 0;
 }
