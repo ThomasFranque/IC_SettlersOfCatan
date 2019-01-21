@@ -6,7 +6,7 @@
 typedef struct{
 /**Estrutura da unidade do mapa, primeira posicao de cada array � uma letra, o resto um numero*/
 	char Building[2];
-	char Material;
+	char Material[3];
 	int Quantidade;
 	int Player;
 	int playerMat[5];
@@ -30,7 +30,7 @@ void print_unit(int gridSizex, int gridSizey, UNIT *grid)
         	if(i % 5 == 0 || j % 5 == 0){
             printf("* ");
           }else if (i%5 == 2 && j%5 == 2){
-            printf("%s%d", grid[(i/5)*gridSizex +(j/5)].Material,grid[(i/5)*gridSizex +(j/5)].Quantidade);
+            printf("%c ", grid[(i/5)*gridSizex +(j/5)].Material[0]);
 					}else if(i%5 == 3 && j%5 == 2){
 						printf("P ");
           }else{
@@ -71,19 +71,14 @@ int main(int argc, char **argv) {
 			printf(" %s %s\n", linha, casa);
 			ini_sget(config, linha, casa ,"%s", &Value); //not this
 			printf("%s", Value);
-			//grid[i*map.xdim + j].Material = Value[0];
+			strcpy(grid[i*map.xdim + j].Material, Value);
 			grid[i*map.xdim + j].Quantidade = (int) strtol(strpbrk(Value, "0123456789"), (char **)NULL, 10);
 		}
 	}
 	ini_free(config);
 /**Fecha o ficheiro*/
-	printf("%d %d\n", map.xdim, map.ydim);
-	for(int i = 0; i<map.ydim; i++){
-		printf("\n");
-		for(int j =0; j<map.xdim;j++){
-			printf("%s \n", grid[i*map.xdim +j].Material);
-		}
-	}
+	printf("Opening Map with dimensions---->X: %d Y: %d\n", map.xdim, map.ydim);
+
 	print_unit(map.xdim, map.ydim, grid);
 	getchar();
 	return 0;
