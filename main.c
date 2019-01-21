@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "map.h"
-#include "fad.h"
-#include "readconfig.h"
 #include "game_logic.h"
+#include "ini.h"
+#include "configmap.h"
 #define MAX 128
 
 int main(int argc, char **argv) {
-	MAP_CONFIG mapa;
+	MAP_CONFIG map;
+	UNIT grid;
 	FILE *f;
 	char *filename;
 	for (int i = 0; i < argc; i++)
@@ -21,11 +21,16 @@ int main(int argc, char **argv) {
 		filename = "mapa.ini";
 	}
 
-	f = abreFicheiro(filename, "r"); /**abre ficheiro atraves de funcao*/
-	/**RETIRAR TODA A INFORMACAO DO FICHEIRO AQUI*/
-	read_config(&mapa, f);
-	print_map(&mapa);
+	ini_t *config = ini_load(filename);
+	map.xdim = atoi(ini_get(config,NULL, "xdim"));
+	map.ydim = atoi(ini_get(config,NULL, "ydim"));
+	atribuir_valores_ini(&grid, map);
 
+	printf("Opening Map with dimensions---->X: %d Y: %d\n", map.xdim, map.ydim);
+
+	print_unit(map.xdim, map.ydim, grid);
+	getchar();
+	free(grid);
 	return 0;
 }
 
@@ -40,7 +45,7 @@ int looop(){
 	       		"Bank ...................... 4"
 	       		"Roll Dice ................. 5" );
 		scanf("\n %s", choice);
-		
+
 		switch(choice){
 			/* Todas as funçoes estao no ficheiro game_logic */
 			case '1':
