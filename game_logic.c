@@ -50,11 +50,7 @@ int play () {
 
 }
 
-int upgrades () {
-	
-}
-
-^/*100% Workingvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*/
+/*100% Workingvvvvv*/
 //inicializar funçao no main como: bank(playerMaterials,points); //points/playerMaterials é respetivo ao jogador que está a jogar
 int bank (int playerMaterials[]) {
 	char choice = '0';
@@ -228,7 +224,8 @@ int bank (int playerMaterials[]) {
 	printf("\nYOU NOW HAVE HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
 	return *playerMaterials;
 }
-/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/*^^^^^^^^^^^^*/
+
 int inventory (playerMaterials) {
 	printf("\nYOUR INVENTORY \nWool: %d \nGrain: %d \nLog: %d \nSteel: %d \nBricky: %d", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
 	return 0;
@@ -236,7 +233,7 @@ int inventory (playerMaterials) {
 
 
 
-//vvvvvvvvvvvvv  algo de errado com o return vvvvvvvvvvvvvv
+//vvvvvvvvvvvvv algo de errado com o return vvvvvvvvvvvvvv
 int buy(int locales[], int playerMaterials[]) {
 	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/
 	char choice;
