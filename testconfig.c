@@ -15,37 +15,29 @@ typedef struct{
 	int ydim;
 } MAP_CONFIG;
 
-void print_unit(){
-    int rows = 5, columns = 5;
-
+void print_unit(int gridSizex, int gridSizey, UNIT *grid)
+{
+		int totalx = gridSizex * 5; /**5 é o tamanho das células*/
+		int totaly = gridSizey * 5;
     /* Iterate over each row */
-    for(int i=1; i<=rows; i++)
+    for(int i=0; i<=totalx; i++)
     {
         /* Iterate over each column */
-        for(int j=1; j<=columns; j++)
+        for(int j=0; j<=totaly; j++)
         {
-        	if(i==1 || i==rows || j==1 || j==columns)
-          {
-                /* Print star for 1st and last row, column */
-              printf("*");
-          }
-          else
-          {
-              printf("X");
-          }
+        	if(i % 5 == 0 || j % 5 == 0){
+            printf("* ");
+          }else if (i%5 == 2 && j%5==2){
+            printf("%s", grid[(i/5)*gridSizex +(j/5)].Material);
+					}else if(i%5 == 3 && j%5==2){
+						printf("P ");
+          }else{
+						printf("  ");
+					}
         }
         /* Move to the next line */
         printf("\n");
     }
-}
-
-
-void print_map(int x, int y){
-	for (int i = 0; i < x; i++){
-		printf("\n");
-		for(int j = 0; i< y; j++);
-			print_unit();
-	}
 }
 
 int main(int argc, char **argv) {
@@ -84,10 +76,10 @@ int main(int argc, char **argv) {
 	for(int i = 0; i<map.ydim; i++){
 		printf("\n");
 		for(int j =0; j<map.xdim;j++){
-			printf("%s ", grid[i*map.xdim +j].Material);
+			printf("%s \n", grid[i*map.xdim +j].Material);
 		}
 	}
-
+	print_unit(map.xdim, map.ydim, grid);
 	getchar();
 	return 0;
 }
