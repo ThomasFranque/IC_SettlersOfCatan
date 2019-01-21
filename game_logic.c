@@ -55,23 +55,20 @@ int upgrades () {
 }
 
 ^/*100% Workingvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*/
-int bank () {
-	//debug stuff all variables should be defined on func
+//inicializar funçao no main como: bank(playerMaterials,points); //points/playerMaterials é respetivo ao jogador que está a jogar
+int bank (int playerMaterials[]) {
 	char choice = '0';
-  int playerPoints;
-	int playerMaterials[] = {11,1,4,7,3,};
-	playerPoints = 0;
 	printf("Debug\n");
 
-  printf("\nYOU HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4]);
+  	printf("\nYOU HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
 
-	printf("\nWant to trade in Materials[1] or Fields[2]?\nExit[3]\n");
+	printf("\nWant to trade in Materials[1]?\nExit[2]\n");
 	scanf("%s", &choice);
 
 
 	if (choice == '1'){
         //player wants to trade materials
-    		printf("Want a Point[1] or another Material[2]?\n ");
+    		printf("Want a Point[1] or another Material[2]?\n");
 		scanf("%s", &choice);
 		if (choice == '1'){
       			printf("With wich Material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
@@ -80,210 +77,220 @@ int bank () {
 			if (choice == '1'){
 				if (playerMaterials[0] >= 10){
 					playerMaterials[0] -= 10;
-					playerPoints += 1;
+					points += 1;
 				}else {
-					printf("Too bad, you ain't got enough.");
+					printf("Sheep! Not enough Wool.");
 				}
 			}else if (choice == '2'){
 				if (playerMaterials[1] >= 10){
 					playerMaterials[1] -= 10;
-					playerPoints += 1;
+					points += 1;
 				} else {
-					printf("Too bad, you ain't got enough.");
+					printf("Those are rookie numbers, you ain't got enough Grain.");
 				}
 			}else if (choice == '3'){
 				if (playerMaterials[2] >= 10){
 					playerMaterials[2] -= 10;
-					playerPoints += 1;
+					points += 1;
 				} else {
-					printf("Too bad, you ain't got enough.");
+					printf("Connection time-out, LOG in failed, not enough Log.");
 				}
 			}else if (choice == '4'){
 				if (playerMaterials[3] >= 10){
 					playerMaterials[3] -= 10;
-					playerPoints += 1;
+					points += 1;
 				} else {
-					printf("Too bad, you ain't got enough.");
+					printf("Caught you steeling, not enough Steel.");
 				}
 			}else if (choice == '5'){
 				if (playerMaterials[4] >= 10){
 					playerMaterials[4] -= 10;
-					playerPoints += 1;
+					points += 1;
 				} else {
-					printf("Too bad, you ain't got enough.");
+					printf("Another Brick in The Wall... Not enough Brick.");
 				}
 			}else{
 				printf("Wakanda material is that?");
       			}
 
 
-	}else if (choice == '2') {
-	/*player wants a new material*/
-		printf("Trade in which Material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
-		scanf("%s", &choice);
-      		if (choice == '1'){ //wool
-        		if (playerMaterials[0] >= 4){
-          			playerMaterials[0] -= 4;
-      		    		printf("Receive which material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
-          			scanf("%s", &choice);
-          			if (choice == '1'){
-          				playerMaterials[0] += 1;
-          			}else if (choice == '2'){
-            				playerMaterials[1] += 1;
-          			}else if (choice == '3'){
-            				playerMaterials[2] += 1;
-          			}else if (choice == '4'){
-            				playerMaterials[3] += 1;
-          			}else if (choice == '5'){
-            				playerMaterials[4] += 1;
-          			}
-        		} else {
-          			printf("Ah Sheeperds, you ain't got enough Wool.");
-        		}
-		} else if (choice == '2'){/*Grain*/
-        		if (playerMaterials[1] >= 4){
-          			playerMaterials[1] -= 4;
-                		printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
-          			scanf("%s", &choice);
-          			if (choice == '1'){
-            				playerMaterials[0] += 1;
-          			}else if (choice == '2'){
-            				playerMaterials[1] += 1;
-          			}else if (choice == '3'){
-            				playerMaterials[2] += 1;
-          			}else if (choice == '4'){
-            				playerMaterials[3] += 1;
-          			}else if (choice == '5'){
-            				playerMaterials[4] += 1;
-          			}
-			} else {
-          			printf("Looks like you have no sand in your eyes, you ain't got enough GrAiN.");
-        		}
-      		} else if (choice == '3'){/*Log*/
-        		if (playerMaterials[2] >= 4){
-          			playerMaterials[2] -= 4;
-                		printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
-          			scanf("%s", &choice);
-          			if (choice == '1'){
-            				playerMaterials[0] += 1;
-          			}else if (choice == '2'){
-          				playerMaterials[1] += 1;
-          			}else if (choice == '3'){
-            				playerMaterials[2] += 1;
-          			}else if (choice == '4'){
-            				playerMaterials[3] += 1;
-          			}else if (choice == '5'){
-            				playerMaterials[4] += 1;
-          			}
-        		} else {
-          			printf("Please Log in first, you ain't got enough Log.");
-        		}
+		}else if (choice == '2') {
+		/*player wants a new material*/
+			printf("Trade in which Material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
+			scanf("%s", &choice);
+	      		if (choice == '1'){ //wool
+	        		if (playerMaterials[0] >= 4){
+	          			playerMaterials[0] -= 4;
+	      		    		printf("Receive which material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
+	          			scanf("%s", &choice);
+	          			if (choice == '1'){
+	          				playerMaterials[0] += 1;
+	          			}else if (choice == '2'){
+	            				playerMaterials[1] += 1;
+	          			}else if (choice == '3'){
+	            				playerMaterials[2] += 1;
+	          			}else if (choice == '4'){
+	            				playerMaterials[3] += 1;
+	          			}else if (choice == '5'){
+	            				playerMaterials[4] += 1;
+	          			}
+	        		} else {
+	          			printf("Ah Sheeperds, you ain't got enough Wool.");
+	        		}
+			} else if (choice == '2'){/*Grain*/
+	        		if (playerMaterials[1] >= 4){
+	          			playerMaterials[1] -= 4;
+	                		printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
+	          			scanf("%s", &choice);
+	          			if (choice == '1'){
+	            				playerMaterials[0] += 1;
+	          			}else if (choice == '2'){
+	            				playerMaterials[1] += 1;
+	          			}else if (choice == '3'){
+	            				playerMaterials[2] += 1;
+	          			}else if (choice == '4'){
+	            				playerMaterials[3] += 1;
+	          			}else if (choice == '5'){
+	            				playerMaterials[4] += 1;
+	          			}
+				} else {
+	          			printf("Looks like you have no sand in your eyes, you ain't got enough GrAiN.");
+	        		}
+	      		} else if (choice == '3'){/*Log*/
+	        		if (playerMaterials[2] >= 4){
+	          			playerMaterials[2] -= 4;
+	                		printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
+	          			scanf("%s", &choice);
+	          			if (choice == '1'){
+	            				playerMaterials[0] += 1;
+	          			}else if (choice == '2'){
+	          				playerMaterials[1] += 1;
+	          			}else if (choice == '3'){
+	            				playerMaterials[2] += 1;
+	          			}else if (choice == '4'){
+	            				playerMaterials[3] += 1;
+	          			}else if (choice == '5'){
+	            				playerMaterials[4] += 1;
+	          			}
+	        		} else {
+	          			printf("Please Log in first, you ain't got enough Log.");
+	        		}
 
-      		} else if (choice == '4'){/*Steel*/
-        		if (playerMaterials[3] >= 4){
-          			playerMaterials[3] -= 4;
-          			printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
-          			scanf("%s", &choice);
-          				if (choice == '1'){
-            					playerMaterials[0] += 1;
-          				}else if (choice == '2'){
-            					playerMaterials[1] += 1;
-          				}else if (choice == '3'){
-            					playerMaterials[2] += 1;
-          				}else if (choice == '4'){
-            					playerMaterials[3] += 1;
-          				}else if (choice == '5'){
-            					playerMaterials[4] += 1;
-          				}
-        		} else {
-          			printf("Stand steel, you ain't got enough Steel.");
-        		}
-      		} else if (choice == '5'){ /*Brick*/
-        		if (playerMaterials[4] >= 4){
-          			playerMaterials[4] -= 4;
-                		printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
-		          	scanf("%s", &choice);
-	          		if (choice == '1'){
-	            			playerMaterials[0] += 1;
-			        }else if (choice == '2'){
-			            	playerMaterials[1] += 1;
-			        }else if (choice == '3'){
-			           	playerMaterials[2] += 1;
-		          	}else if (choice == '4'){
-		            		playerMaterials[3] += 1;
-		          	}else if (choice == '5'){
-		            		playerMaterials[4] += 1;
-		          	}
-		        } else {
-		          	printf("Too bad, you ain't got enough.");
-		        }
-		} else {
-			printf("Wakanda material is that");
+	      		} else if (choice == '4'){/*Steel*/
+	        		if (playerMaterials[3] >= 4){
+	          			playerMaterials[3] -= 4;
+	          			printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
+	          			scanf("%s", &choice);
+	          				if (choice == '1'){
+	            					playerMaterials[0] += 1;
+	          				}else if (choice == '2'){
+	            					playerMaterials[1] += 1;
+	          				}else if (choice == '3'){
+	            					playerMaterials[2] += 1;
+	          				}else if (choice == '4'){
+	            					playerMaterials[3] += 1;
+	          				}else if (choice == '5'){
+	            					playerMaterials[4] += 1;
+	          				}
+	        		} else {
+	          			printf("Stand steel, you ain't got enough Steel.");
+	        		}
+	      		} else if (choice == '5'){ /*Brick*/
+	        		if (playerMaterials[4] >= 4){
+	          			playerMaterials[4] -= 4;
+	                		printf("Receive wich material? \n Wool ..... [1] \n Grain .... [2] \n Log ...... [3] \n Steel .... [4] \n Brick .... [5] \n ");
+			          	scanf("%s", &choice);
+		          		if (choice == '1'){
+		            			playerMaterials[0] += 1;
+				        }else if (choice == '2'){
+				            	playerMaterials[1] += 1;
+				        }else if (choice == '3'){
+				           	playerMaterials[2] += 1;
+			          	}else if (choice == '4'){
+			            		playerMaterials[3] += 1;
+			          	}else if (choice == '5'){
+			            		playerMaterials[4] += 1;
+			          	}
+			        } else {
+			          	printf("Too bad, you ain't got enough.");
+			        }
+			} else {
+				printf("Wakanda material is that");
+			}
 		}
-	}
 
 
 	} else if (choice == '2'){
-		/*Player wants to trade houses*/
-		  printf("kk");
+		/*Player wants to leave*/
+		  printf("Returning...");
 	}
 
-	printf("\nYOU NOW HAVE HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4]);
-	return 0;
+	printf("\nYOU NOW HAVE HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
+	return *playerMaterials;
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 int inventory (playerMaterials) {
-	printf("\n-YOUR INVENTORY \nWool: %d \nGrain: %d \nLog: %d \nSteel: %d \nBricky: %d", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
+	printf("\nYOUR INVENTORY \nWool: %d \nGrain: %d \nLog: %d \nSteel: %d \nBricky: %d", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
 	return 0;
 }
 
 
-int buy (locales,playerMaterials) {
+
+//vvvvvvvvvvvvv  algo de errado com o return vvvvvvvvvvvvvv
+int buy(int locales[], int playerMaterials[]) {
 	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/
 	char choice;
 	int casa;
-	while (1){
-		scanf("Want a Village[1] or a City[2]?\nExit[3]\n%s",choice);
-		if (choice == '1'){
-			/*Village*/
-			printf("Besides what house do you want to build your new Village? (Insert house number)\n")
-			scanf("%d", casa)
-			if (locales[casa-1] == '0' && (locales[casa-2] == '0' || locales[casa] == '0' || locales[casa-5] == '0' || locales[casa + 3] == '0')){
-				playerMaterials[4] >= 1 ? playerMaterials[4] -= 1 : printf("\nRoad Block! Not enough Brick."); //brick
-				
-				playerMaterials[2] >= 1 ? playerMaterials[2] -= 1 : printf("\nFriend of the enviroment I see, not enough Log."); //log
-				
-				playerMaterials[1] >= 1 ? playerMaterials[1] -= 1 : printf("\nSa(n)d, not enough Grain."); //grain
-				
-				playerMaterials[0] >= 1 ? playerMaterials[0] -= 1 : printf("\nSheep! Not enough Wool."); //wool
-				
-				locales[casa-1] = 1;
-				
+	printf("Want a Village[1] or a City[2]?\nExit[3]\n");
+	scanf("%s", &choice);
+	if (choice == '1') {
+		/*Village*/
+		printf("Besides what house do you want to build your new Village? (Insert house number)\n");
+		scanf("%d", &casa);
+
+		//debug
+		printf("Casa = %d \nLocales = %d \n", casa, *locales);
+		printf("\nWool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
+		//
+		if (locales[casa - 1] == 0 && ((((locales[casa - 2] == 0 || locales[casa] == 0) || locales[casa - 5] == 0) || locales[casa + 3] == 0))) {
+			if (playerMaterials[4] >= 1 && playerMaterials[2] >= 1 && playerMaterials[1] >= 1 && playerMaterials[0] >= 1) {
+				playerMaterials[4] -= 1;
+				printf("Brick:%d \n", playerMaterials[4]);
+				playerMaterials[2] -= 1;
+				printf("Log:%d \n", playerMaterials[2]);
+				playerMaterials[1] -= 1;
+				printf("Grain:%d \n", playerMaterials[1]);
+				playerMaterials[0] -= 1;
+				printf("Wool:%d \n", playerMaterials[0]);
+				locales[casa - 1] = 1;
 				printf("Success!");
-			} else {
-				printf("Not a valid position...");
 			}
-		} else if (choice == '2'){
-			/*Cityyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyhereyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy*/
-			printf("Choose a village to upgrade. (Insert house number)\n")
-			scanf("%d", casa)
-			if (locales[casa-1] == 1){
-				playerMaterials[4] >= 1 ? playerMaterials[1] -= 1 : printf("\nRoad Block! Not enough Brick."); //grain
-				
-				playerMaterials[2] >= 1 ? playerMaterials[3] -= 1 : printf("\nFriend of the enviroment I see, not enough Log."); //steel
+			else {
+				printf("\nYou don't have enough materials.");
 			}
-		
-		} else if (choice == '3'){
-			/*exit*/
-			printf(".")
-		} else {
-			print("Unknown Option")
+		}
+		else {
+			printf("Not a valid position...");
 		}
 	}
+	else if (choice == '2') {
+		/*City*/
+		printf("Choose a village to upgrade. (Insert house number)\n");
+		scanf("%d", &casa);
+		if (locales[casa - 1] == 1) {
+			printf("Yes");
+		}
+
+	}
+	else if (choice == '3') {
+		/*exit*/
+		printf(".");
+	}
+	else {
+		printf("Unknown Option");
+	}
+	return *playerMaterials;
 }
-
-
-
 
 
 
