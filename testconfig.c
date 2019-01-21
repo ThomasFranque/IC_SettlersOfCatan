@@ -27,14 +27,14 @@ void print_unit(int gridSizex, int gridSizey, UNIT *grid)
         /* Iterate over each column */
         for(int j=0; j<=totaly; j++)
         {
-        	if(i % 5 == 0 || j % 5 == 0){
-            printf("* ");
-          }else if (i%5 == 2 && j%5 == 2){
-            printf("%c ", grid[(i/5)*gridSizex +(j/5)].Material[0]);
-					}else if(i%5 == 3 && j%5 == 2){
-						printf("P ");
-          }else{
-						printf("  ");
+        if(i % 5 == 0 || j % 5 == 0){
+        	printf("* ");
+        }else if (i%5 == 2 && j%5 == 2){
+        	printf("%c ", grid[(i/5)*gridSizex +(j/5)].Material[0]);
+				}else if(i%5 == 3 && j%5 == 2){
+					printf("P ");
+        }else{
+					printf("  ");
 					}
         }
         /* Move to the next line */
@@ -60,17 +60,18 @@ int main(int argc, char **argv) {
 	map.ydim = atoi(ini_get(config,NULL, "ydim"));
 
 	UNIT *grid = calloc((map.xdim * map.ydim), sizeof(UNIT)); /**Isto aloca a grid com as estruturas UNIT la dentro*/
-	char casa[128];
+	char casa[3];
 	char linha[12];
 	char Value[3];
-	for(int i = 0; i<map.ydim; i++){
-
+	for(int i = 0; i<map.ydim; i++){ /**Itera sobre a dimensao do mapa e atribui os valores que le da INI na grid*/
+		strcpy(linha, "");
 		sprintf(linha,"linha %d", ((i%map.ydim)+1));
+
 		for(int j =0; j<map.xdim;j++){
 			sprintf(casa,"C%d", ((j%map.xdim)+1));
-			printf(" %s %s\n", linha, casa);
+			printf("%s %s\n", linha, casa);
 			ini_sget(config, linha, casa ,"%s", &Value); //not this
-			printf("%s", Value);
+
 			strcpy(grid[i*map.xdim + j].Material, Value);
 			grid[i*map.xdim + j].Quantidade = (int) strtol(strpbrk(Value, "0123456789"), (char **)NULL, 10);
 		}
@@ -81,5 +82,6 @@ int main(int argc, char **argv) {
 
 	print_unit(map.xdim, map.ydim, grid);
 	getchar();
+	free(grid);
 	return 0;
 }
