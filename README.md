@@ -13,7 +13,7 @@
   + Todas as funçoes de lógica estão num único ficheiro (game_logic.c).
   + No lançamento dos dados foi também definido que seriam 2 valores aleatorios de 1 a 6 somados.
   + Não são usadas quaisqueres variaveis globais.
-  + FALTA AINDA COISAS
+  + Devido à falta de tempo, não conseguimos resolver um problema nos materiais.
 ### Referencias
 ##### Bibliotecas usadas
 + As bibliotecas utilizadas foram o <stdio.h>, <time.h>, <stdlib.h> e uma exterior [<ini.h>](https://github.com/rxi/ini).
