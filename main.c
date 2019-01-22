@@ -4,6 +4,7 @@
 #include "game_logic.h"
 #include "ini.h"
 #include "configmap.h"
+#include "aiai.h"
 #define MAX 128
 /** @file*/
 /**
@@ -43,20 +44,32 @@ int main(int argc, char **argv) {
 /**
 @brief Esta funcao contem o loop principal do jogo
 */
-int Game_loop(){
-	int choice
-	printf("Hello, "); 	/*FALTA A PUTA DE UMA MENSAGEM AQUI TOMAS, EU NAO TE PAGO PARA ISTO*/
-	while true:
-		printf( "What do you want to do? %d"
-			"Buy Village  .............. 1"
-	      		"Upgarade Village .......... 2"
-			"Check Inventory ........... 3"
-	       		"Bank ...................... 4"
-	       		"Roll Dice ................. 5" );
-		scanf("\n %d", choice);
+int Game_loop(UNIT *grid){
+	char choice;
+	int choiceInt;
 
-		switch(choice){
-			/* Todas as funçoes estao no ficheiro game_logic */
+	int aiMaterials;
+	int aiPoints;
+
+	printf("Hello, welcome to our land, here, you will have to face the most brave punmaster, the one and only JapAInese.\n\n>Yes, me come forth child, for we are about to make history...\n");
+	printf(">Tell me, where do you want you first steeltlement?");
+	scanf("%d", &choiceInt);
+	grid[choiceInt - 1]->Building = 1;
+	printf("GAME MASTER!! You heard the kid, time for some Ja in my pun.\n")
+		while true{
+			printf("Your turn to roll player.\n>Inpun anything to Roll my son.");
+			getchar()
+				play();
+			printf("\nWhat do you want to do next?"
+				"Buy Village  .............. 1"
+				"Upgarade Village .......... 2"
+				"Check Inventory ........... 3"
+				"Bank ...................... 4"
+				"Continue .................. 5");
+			scanf("%s", &choice);
+
+			switch (choice) {
+				/* Todas as funçoes estao no ficheiro game_logic */
 			case '1':
 				buy();
 			case '2':
@@ -66,8 +79,21 @@ int Game_loop(){
 			case '4':
 				bank();
 			case '5':
-				play();
+				break;
 			default:
-				print("Unvalid Input");
+				print(">WHAT DID YOU SAY? That's a very offensive word in Japunese");
+			}
+
+			ai(aiMaterials, aiPoints);
+
+			if playerPoints == 6{
+				printf("You Win!!")
+					break;
+			}
+			else if {
+				printf("HAHA! I WIN! PUNTASTIC! You are really bad...");
+				break;
+			}
 		}
+
 }
