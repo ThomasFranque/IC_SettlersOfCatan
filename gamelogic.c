@@ -1,3 +1,10 @@
+/** @mainpage IC Trabalho Final
+@section intro_sec Introdução
+Esta é a documentação para o projeto final da cadeira Introdução a Computação da universidade lusofona de Lisboa
+
+*/
+
+
 #include <stdio.h>
 #include "diceroll.h"
 #include "gamelogic.h"
@@ -269,7 +276,9 @@ void inventory (int *playerMaterials) {
 }
 
 /** @brief buy compra e atualiza valores dos materiais do jogador
-@param MAP_CONFIG
+@param map dimensoes xdim e ydim em formato MAP_CONFIG
+@param grid vetor de UNIT que tem a informacao do mapa
+@param playerMaterials vetor com os materiais do jogador
 */
 int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/

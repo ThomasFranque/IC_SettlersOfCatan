@@ -1,7 +1,10 @@
 #ifndef CONFIGMAP_H_INCLUDED
 #define CONFIGMAP_H_INCLUDED
 
-/** Unidade ou Casa do mapa*/
+/**
+@brief UNIT Unidade ou Casa do mapa
+esta estrutura e usada em todo o programa para multiplas funcoes.
+*/
 typedef struct{
 /** Building inteiro com a informacao do edificio construido nesta celula (0 a 4)*/
 	int Building;
@@ -9,8 +12,7 @@ typedef struct{
 	char Material[3];
 /** Quantidade numero a ser comparado quando se rolam os dados*/
 	int Quantidade;
-	int Player;
-}UNIT; /** Unidade do mapa*/
+}UNIT;
 
 
 /** MAP_CONFIG e a estrutura onde se guarda xdim e ydim do mapa */
