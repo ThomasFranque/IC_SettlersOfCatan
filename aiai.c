@@ -51,21 +51,21 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	choiceInt = rand() % 10;
 	if (choiceInt == 3){
 		choice = '1';
-	} else {
+	}else if (choiceInt == 5){
 		choice = '2';
 	}
-	delay(1);
-	printf(">%d",choice);
+	delay(4);
+	printf(">%d\n",choice);
 	if (choice == '1') {
 		/*Village*/
-		printf("WHere do you want to build your new Village? (Insert house number)\n");
+		printf("Where do you want to build your new Village? (Insert house number)\n");
 		printf("Want a Village[1] or a City[2]?\nExit[3]\n");
 		delay(1);
 		printf(">Let me think...");
 		casa = rand() % (map.xdim*map.ydim);
-		delay(1);
+		delay(2);
 		printf(">%d!", casa);
-
+		delay(1);
 		if (adjacenteAI(map, grid, casa) != 0) {
 			if (playerMaterials[4] >= 1 && playerMaterials[2] >= 1 && playerMaterials[1] >= 1 && playerMaterials[0] >= 1) {
 				playerMaterials[4] -= 1;
@@ -76,11 +76,11 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 				printf("Success!\n\n>");
 			}
 			else {
-				printf("\nYou don't have enough materials.\n\n>AH, I do Have!! I can prove it!!");
+				printf("\nYou don't have enough materials.\n\n>AH, I do Have!! I can prove it!!\n");
 			}
 		}
 		else {
-			printf("Not a valid position...\n\n>I AM THE ONE WHO SAYS IF ITS VALID OR NOT!");
+			printf("Not a valid position...\n\n>I AM THE ONE WHO SAYS IF ITS VALID OR NOT\n!");
 		}
 	}
 	else if (choice == '2') {
@@ -88,13 +88,13 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		printf("Choose a village to upgrade. (Insert house number)\n");
 
 		delay(1);
-		printf(">Villages, hm...");
+		printf(">Villages, hm...\n");
 		casa = rand() % (map.xdim*map.ydim);
 		delay(1);
-		printf(">I choose village %d.", casa);
+		printf(">I choose village %d.\n", casa);
 		if (grid[casa - 1].Building == 1) {
 			grid[casa - 1].Building = 2;
-			printf("That village is now a city.\n\n>Woah, it's almost impossible for me to get it right!");
+			printf("That village is now a city.\n\n>Woah, it's almost impossible for me to get it right!\n");
 		}
 
 	}
@@ -106,7 +106,7 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 */
 void ai(int *aiMaterials, MAP_CONFIG map, UNIT *grid) {
 	int choice;
-	printf("It's JapAInese, the pun master turn!");
+	printf("It's JapAInese, the pun master turn!\n");
 	delay(1);
 	//My turn! You are gonna feel the wrath o a thousand puns!
 	//
@@ -117,7 +117,7 @@ void ai(int *aiMaterials, MAP_CONFIG map, UNIT *grid) {
 	choice = rand() % 10;
 	if (choice >= 3) {
 		buyAI(map, grid, aiMaterials);
-	} else {
-	printf("I skip this one.");
+	}else{
+		printf("I skip this one.\n");
 	}
 }

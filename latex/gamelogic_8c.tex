@@ -9,26 +9,26 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{gamelogic_8c_aad314618eef7d6811c12c0c0d9e1dc5a}{adjacente}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} grid, int casa)
+int \mbox{\hyperlink{gamelogic_8c_a9fa2f4f550eaeea15e2c697e00243301}{adjacente}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int casa)
 \begin{DoxyCompactList}\small\item\em adjacentes descobre se ha edificios adjacentes a casa escolhida \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{gamelogic_8c_abdeb32638120fa1d491bf7260d757443}{adjacente\+\_\+number}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} grid, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid\+\_\+adjacentes)
+void \mbox{\hyperlink{gamelogic_8c_a3a3cb98d1c96442038bca253ce740f5a}{adjacente\+\_\+number}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid\+\_\+adjacentes)
 \begin{DoxyCompactList}\small\item\em adjacentes\+\_\+number descobre qual o numero do terreno adjacente a um edificio \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{gamelogic_8c_ac49e4a7c1e883da0c61e1e7e6c5e9700}{play}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid)
+void \mbox{\hyperlink{gamelogic_8c_abd910f9a10c15157fc6a94b7c842ea03}{play}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int $\ast$materiais)
 \begin{DoxyCompactList}\small\item\em Funcao que realiza a jogada inicial de lancar os dados e ir buscar os terrenos todos das cidades que se tem. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{gamelogic_8c_a3b2164f2b138d9c3f98acb6bbc231684}{bank}} (int $\ast$player\+Materials)
+void \mbox{\hyperlink{gamelogic_8c_a6e63d5d3defb660ea5b684a1f708c416}{bank}} (int $\ast$player\+Materials, int $\ast$points)
 \begin{DoxyCompactList}\small\item\em Funcao bank recebe os materiais do player e realiza as trocas desejadas. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{gamelogic_8c_ae3ff3910e44c00ce75a7bc6257f27677}{inventory}} (int $\ast$player\+Materials)
 \begin{DoxyCompactList}\small\item\em mosta o inventario atual do jogador \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{gamelogic_8c_abc648c27cffcf9015696d0b6d2de3b15}{buy}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int $\ast$player\+Materials)
+void \mbox{\hyperlink{gamelogic_8c_a80400ae80a5b413f0e5eef1df8bb3e6a}{buy}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int $\ast$player\+Materials)
 \begin{DoxyCompactList}\small\item\em buy compra e atualiza valores dos materiais do jogador \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{gamelogic_8c_aad314618eef7d6811c12c0c0d9e1dc5a}\label{gamelogic_8c_aad314618eef7d6811c12c0c0d9e1dc5a}} 
+\mbox{\Hypertarget{gamelogic_8c_a9fa2f4f550eaeea15e2c697e00243301}\label{gamelogic_8c_a9fa2f4f550eaeea15e2c697e00243301}} 
 \index{gamelogic.c@{gamelogic.c}!adjacente@{adjacente}}
 \index{adjacente@{adjacente}!gamelogic.c@{gamelogic.c}}
 \subsubsection{\texorpdfstring{adjacente()}{adjacente()}}
-{\footnotesize\ttfamily int adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}}}]{grid,  }\item[{int}]{casa }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int}]{casa }\end{DoxyParamCaption})}
 
 
 
@@ -43,11 +43,11 @@ adjacentes descobre se ha edificios adjacentes a casa escolhida
 {\em casa} & celula do mapa \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{gamelogic_8c_abdeb32638120fa1d491bf7260d757443}\label{gamelogic_8c_abdeb32638120fa1d491bf7260d757443}} 
+\mbox{\Hypertarget{gamelogic_8c_a3a3cb98d1c96442038bca253ce740f5a}\label{gamelogic_8c_a3a3cb98d1c96442038bca253ce740f5a}} 
 \index{gamelogic.c@{gamelogic.c}!adjacente\_number@{adjacente\_number}}
 \index{adjacente\_number@{adjacente\_number}!gamelogic.c@{gamelogic.c}}
 \subsubsection{\texorpdfstring{adjacente\_number()}{adjacente\_number()}}
-{\footnotesize\ttfamily void adjacente\+\_\+number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}}}]{grid,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid\+\_\+adjacentes }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void adjacente\+\_\+number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid\+\_\+adjacentes }\end{DoxyParamCaption})}
 
 
 
@@ -62,11 +62,11 @@ adjacentes\+\_\+number descobre qual o numero do terreno adjacente a um edificio
 {\em grid\+\_\+adjacentes} & tipo \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} que recebe as estruturas adjacentes \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{gamelogic_8c_a3b2164f2b138d9c3f98acb6bbc231684}\label{gamelogic_8c_a3b2164f2b138d9c3f98acb6bbc231684}} 
+\mbox{\Hypertarget{gamelogic_8c_a6e63d5d3defb660ea5b684a1f708c416}\label{gamelogic_8c_a6e63d5d3defb660ea5b684a1f708c416}} 
 \index{gamelogic.c@{gamelogic.c}!bank@{bank}}
 \index{bank@{bank}!gamelogic.c@{gamelogic.c}}
 \subsubsection{\texorpdfstring{bank()}{bank()}}
-{\footnotesize\ttfamily void bank (\begin{DoxyParamCaption}\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void bank (\begin{DoxyParamCaption}\item[{int $\ast$}]{player\+Materials,  }\item[{int $\ast$}]{points }\end{DoxyParamCaption})}
 
 
 
@@ -77,11 +77,11 @@ Funcao bank recebe os materiais do player e realiza as trocas desejadas.
 {\em player\+Materials} & vetor de int com a informacao dos materiais do player \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{gamelogic_8c_abc648c27cffcf9015696d0b6d2de3b15}\label{gamelogic_8c_abc648c27cffcf9015696d0b6d2de3b15}} 
+\mbox{\Hypertarget{gamelogic_8c_a80400ae80a5b413f0e5eef1df8bb3e6a}\label{gamelogic_8c_a80400ae80a5b413f0e5eef1df8bb3e6a}} 
 \index{gamelogic.c@{gamelogic.c}!buy@{buy}}
 \index{buy@{buy}!gamelogic.c@{gamelogic.c}}
 \subsubsection{\texorpdfstring{buy()}{buy()}}
-{\footnotesize\ttfamily int buy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void buy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
 
 
 
@@ -111,11 +111,11 @@ mosta o inventario atual do jogador
 {\em player\+Materials} & vetor com os materiais do jogador \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{gamelogic_8c_ac49e4a7c1e883da0c61e1e7e6c5e9700}\label{gamelogic_8c_ac49e4a7c1e883da0c61e1e7e6c5e9700}} 
+\mbox{\Hypertarget{gamelogic_8c_abd910f9a10c15157fc6a94b7c842ea03}\label{gamelogic_8c_abd910f9a10c15157fc6a94b7c842ea03}} 
 \index{gamelogic.c@{gamelogic.c}!play@{play}}
 \index{play@{play}!gamelogic.c@{gamelogic.c}}
 \subsubsection{\texorpdfstring{play()}{play()}}
-{\footnotesize\ttfamily int play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int $\ast$}]{materiais }\end{DoxyParamCaption})}
 
 
 

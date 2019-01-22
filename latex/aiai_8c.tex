@@ -1,32 +1,29 @@
 \hypertarget{aiai_8c}{}\section{aiai.\+c File Reference}
 \label{aiai_8c}\index{aiai.c@{aiai.c}}
-{\ttfamily \#include $<$studio.\+h$>$}\newline
-{\ttfamily \#include $<$gamelogic.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gamelogic.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
-{\ttfamily \#include $<$random.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}aiai.\+h\char`\"{}}\newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{aiai_8c_a4b02db0ca748a78c620fb640a540568c}{adjacente\+AI}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} grid, int casa)
+int \mbox{\hyperlink{aiai_8c_acd05c179e78a2c2da5bd56bfa7184fd0}{adjacente\+AI}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int casa)
 \begin{DoxyCompactList}\small\item\em descobre se ha edificios adjacentes a casa escolhida \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{aiai_8c_ab9707d9a622844ffc0b1ae1b77764aaa}\label{aiai_8c_ab9707d9a622844ffc0b1ae1b77764aaa}} 
-void \mbox{\hyperlink{aiai_8c_ab9707d9a622844ffc0b1ae1b77764aaa}{delay}} (int number\+\_\+of\+\_\+seconds)
+void \mbox{\hyperlink{aiai_8c_ac02219a52cea942ca0c158c5834e31bc}{delay}} (int seconds)
 \begin{DoxyCompactList}\small\item\em Funcao de temporizador para suspanse dentro do jogo. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{aiai_8c_a84380591f0d4053899e5964c4238ff3d}\label{aiai_8c_a84380591f0d4053899e5964c4238ff3d}} 
-int {\bfseries random} (int x)
-\item 
-int \mbox{\hyperlink{aiai_8c_ac7c401b64514fd5ac2482aaa9c54c0f1}{buy\+AI}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int $\ast$player\+Materials)
-\begin{DoxyCompactList}\small\item\em Funcao para a compra do AI, para ser usada na funcao \mbox{\hyperlink{aiai_8c_a47f1d44f1e20fee6f0f3b138ffe61035}{ai()}}. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{aiai_8c_a47f1d44f1e20fee6f0f3b138ffe61035}{ai}} (int ai\+Materials, int ai\+Points)
+void \mbox{\hyperlink{aiai_8c_aa7b74aa5bc4cf7c53bc28a58bb409dac}{buy\+AI}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int $\ast$player\+Materials)
+\begin{DoxyCompactList}\small\item\em Funcao para a compra do AI, para ser usada na funcao \mbox{\hyperlink{aiai_8c_a87f53aec0222088782257a16aca9f686}{ai()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{aiai_8c_a87f53aec0222088782257a16aca9f686}{ai}} (int $\ast$ai\+Materials, \mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid)
 \begin{DoxyCompactList}\small\item\em Funcao que tem o turno do AI, para um turno é só chamar esta função. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{aiai_8c_a4b02db0ca748a78c620fb640a540568c}\label{aiai_8c_a4b02db0ca748a78c620fb640a540568c}} 
+\mbox{\Hypertarget{aiai_8c_acd05c179e78a2c2da5bd56bfa7184fd0}\label{aiai_8c_acd05c179e78a2c2da5bd56bfa7184fd0}} 
 \index{aiai.c@{aiai.c}!adjacenteAI@{adjacenteAI}}
 \index{adjacenteAI@{adjacenteAI}!aiai.c@{aiai.c}}
 \subsubsection{\texorpdfstring{adjacenteAI()}{adjacenteAI()}}
-{\footnotesize\ttfamily int adjacente\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}}}]{grid,  }\item[{int}]{casa }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int adjacente\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int}]{casa }\end{DoxyParamCaption})}
 
 
 
@@ -41,11 +38,11 @@ descobre se ha edificios adjacentes a casa escolhida
 {\em casa} & celula do mapa \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{aiai_8c_a47f1d44f1e20fee6f0f3b138ffe61035}\label{aiai_8c_a47f1d44f1e20fee6f0f3b138ffe61035}} 
+\mbox{\Hypertarget{aiai_8c_a87f53aec0222088782257a16aca9f686}\label{aiai_8c_a87f53aec0222088782257a16aca9f686}} 
 \index{aiai.c@{aiai.c}!ai@{ai}}
 \index{ai@{ai}!aiai.c@{aiai.c}}
 \subsubsection{\texorpdfstring{ai()}{ai()}}
-{\footnotesize\ttfamily int ai (\begin{DoxyParamCaption}\item[{int}]{ai\+Materials,  }\item[{int}]{ai\+Points }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ai (\begin{DoxyParamCaption}\item[{int $\ast$}]{ai\+Materials,  }\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid }\end{DoxyParamCaption})}
 
 
 
@@ -58,15 +55,15 @@ Funcao que tem o turno do AI, para um turno é só chamar esta função.
 {\em ai\+Points} & numero de pontos do ai para verificar se ganha. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{aiai_8c_ac7c401b64514fd5ac2482aaa9c54c0f1}\label{aiai_8c_ac7c401b64514fd5ac2482aaa9c54c0f1}} 
+\mbox{\Hypertarget{aiai_8c_aa7b74aa5bc4cf7c53bc28a58bb409dac}\label{aiai_8c_aa7b74aa5bc4cf7c53bc28a58bb409dac}} 
 \index{aiai.c@{aiai.c}!buyAI@{buyAI}}
 \index{buyAI@{buyAI}!aiai.c@{aiai.c}}
 \subsubsection{\texorpdfstring{buyAI()}{buyAI()}}
-{\footnotesize\ttfamily int buy\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void buy\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
 
 
 
-Funcao para a compra do AI, para ser usada na funcao \mbox{\hyperlink{aiai_8c_a47f1d44f1e20fee6f0f3b138ffe61035}{ai()}}. 
+Funcao para a compra do AI, para ser usada na funcao \mbox{\hyperlink{aiai_8c_a87f53aec0222088782257a16aca9f686}{ai()}}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -75,5 +72,20 @@ Funcao para a compra do AI, para ser usada na funcao \mbox{\hyperlink{aiai_8c_a4
 {\em grid} & vetor \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} com o mapa. \\
 \hline
 {\em player\+Materials} & materiais do AI. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{aiai_8c_ac02219a52cea942ca0c158c5834e31bc}\label{aiai_8c_ac02219a52cea942ca0c158c5834e31bc}} 
+\index{aiai.c@{aiai.c}!delay@{delay}}
+\index{delay@{delay}!aiai.c@{aiai.c}}
+\subsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void delay (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})}
+
+
+
+Funcao de temporizador para suspanse dentro do jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & segundos que o programa deve de esperar para a proxima instrucao. \\
 \hline
 \end{DoxyParams}

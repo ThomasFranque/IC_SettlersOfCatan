@@ -2,7 +2,7 @@
 #define GAMELOGIC_H_INCLUDED
 #include "configmap.h"
 void play (MAP_CONFIG map, UNIT *grid, int *materiais);
-void bank (int *playerMaterials, int * points);
+int bank (int *playerMaterials, int points);
 void inventory (int *playerMaterials);
 int adjacente(MAP_CONFIG map, UNIT *grid,int casa);
 void adjacente_number(MAP_CONFIG map, UNIT *grid, UNIT *grid_adjacentes);

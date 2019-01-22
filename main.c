@@ -10,10 +10,15 @@
 #define MAX 128
 /** @file*/
 
+/** @brief funcao para limpar a consola
+*/
+void clrscr()
+{
+    system("@cls||clear");
+}
 /**
 @brief Esta funcao contem o loop principal do jogo
 */
-
 void Game_loop(UNIT *grid, MAP_CONFIG map){
 	char choice;
 	int choiceInt;
@@ -25,20 +30,22 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 	int aiPoints = 0;
 
 	printf("Hello, welcome to our land, here, you will have to face the most brave punmaster, the one and only JapAInese.\n\n>Yes, me come forth child, for we are about to make history...\n");
-	printf(">Tell me, where do you want you first steeltlement?");
+	printf(">Tell me, where do you want you first steeltlement? >> ");
 	scanf("%d", &choiceInt);
 	grid[choiceInt - 1].Building = 1;
 	printf("GAME MASTER!! You heard the kid, time for some Ja in my pun.\n");
 		while (1){
-			print_map(map.xdim, map.ydim, grid)
+			clrscr();
+			printf("\n");
+			print_map(map.xdim, map.ydim, grid);
 			printf("Your turn to roll player.\n>Inpun anything to Roll my son.");
 			getchar();
 			play(map, grid, playerMaterials);
-			printf("\nWhat do you want to do next?"
-				"Buy Village  .............. 1"
-				"Check Inventory ........... 2"
-				"Bank ...................... 3"
-				"Continue .................. 4");
+			printf("\nWhat do you want to do next?\n"
+				"Buy Village  .............. 1\n"
+				"Check Inventory ........... 2\n"
+				"Bank ...................... 3\n"
+				"Continue .................. 4\n");
 			scanf("%s", &choice);
 
 			switch (choice) {
@@ -48,11 +55,11 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 			case '2':
 				inventory( playerMaterials);
 			case '3':
-				bank( playerMaterials, &playerPoints);
+				playerPoints = bank( playerMaterials, playerPoints);
 			case '4':
 				break;
 			default:
-				printf(">WHAT DID YOU SAY? That's a very offensive word in Japunese");
+				printf(">WHAT DID YOU SAY? That's a very offensive word in Japunese\n");
 			}
 
 			ai(aiMaterials, map, grid);
@@ -94,6 +101,7 @@ int main(int argc, char **argv) {
 	atribuir_valores_ini(grid, map, config);
 
 	printf("Opening Map with dimensions---->X: %d Y: %d\n", map.xdim, map.ydim);
+	print_map(map.xdim, map.ydim, grid);
 	Game_loop(grid, map);
 	getchar();
 	return 0;

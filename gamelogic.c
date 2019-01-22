@@ -65,6 +65,7 @@ void play (MAP_CONFIG map, UNIT *grid, int *materiais) {
 
 	adjacente_number(map, grid, adjacentNumbers);
 	for(int i = 0; i<(int)( sizeof(adjacentNumbers)/ sizeof(UNIT) ); i++){
+		printf("%c", adjacentNumbers[i].Material[0]);
 		if (turnNumber == adjacentNumbers[i].Quantidade){
 			if(adjacentNumbers[i].Material[0] == 'W')
 				materiais[0] += 1;
@@ -86,12 +87,10 @@ void play (MAP_CONFIG map, UNIT *grid, int *materiais) {
 @brief Funcao bank recebe os materiais do player e realiza as trocas desejadas
 @param playerMaterials vetor de int com a informacao dos materiais do player
 */
-void bank (int *playerMaterials, int *points) {
+int bank (int *playerMaterials, int points) {
 
 	char choice = '0';
-	printf("Debug\n");
-
-  	printf("\nYOU HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
+  printf("\nYOU HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
 
 	printf("\nWant to trade in Materials[1]?\nExit[2]\n");
 	scanf("%s", &choice);
@@ -254,8 +253,8 @@ void bank (int *playerMaterials, int *points) {
 		  printf("Returning...");
 	}
 
-	printf("\nYOU NOW HAVE HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
-	return;
+	printf("\nYOU NOW HAVE HAVE:\n Wool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n\n Points: %d\n",playerMaterials[0],playerMaterials[1],playerMaterials[2],playerMaterials[3],playerMaterials[4],points);
+	return points;
 }
 /*^^^^^^^^^^^^*/
 
