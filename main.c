@@ -30,6 +30,7 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 	grid[choiceInt - 1].Building = 1;
 	printf("GAME MASTER!! You heard the kid, time for some Ja in my pun.\n");
 		while (1){
+			print_map(map.xdim, map.ydim, grid)
 			printf("Your turn to roll player.\n>Inpun anything to Roll my son.");
 			getchar();
 			play(map, grid, playerMaterials);
@@ -75,7 +76,6 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 */
 int main(int argc, char **argv) {
 	MAP_CONFIG map;
-	UNIT grid;
 	char *filename;
 	for (int i = 0; i < argc; i++)
 		printf("Parametro %d: %s\n", i, argv[i]);
@@ -90,12 +90,11 @@ int main(int argc, char **argv) {
 	ini_t *config = ini_load(filename);
 	map.xdim = atoi(ini_get(config,NULL, "xdim"));
 	map.ydim = atoi(ini_get(config,NULL, "ydim"));
-	atribuir_valores_ini(&grid, map, config);
+	UNIT *grid = calloc((map.xdim * map.ydim), sizeof(UNIT));
+	atribuir_valores_ini(grid, map, config);
 
 	printf("Opening Map with dimensions---->X: %d Y: %d\n", map.xdim, map.ydim);
-
-	print_map(map.xdim, map.ydim, &grid);
-
+	Game_loop(grid, map);
 	getchar();
 	return 0;
 }

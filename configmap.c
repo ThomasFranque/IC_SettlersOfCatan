@@ -25,12 +25,14 @@ void print_map(int gridSizex, int gridSizey, UNIT *grid)
         if(i % cellsize == 0 || j % cellsize == 0){
 
         	printf("* ");
-				}else if(i%cellsize == 1 && j%cellsize == 2){
-					printf("%d", (i/cellsize) * gridSizex + (j/cellsize));
+				}else if((i%cellsize == 1 && j%cellsize == 2) && (1 + (i/cellsize) * gridSizex + (j/cellsize)) < 10){
+					printf("%d ", (1 + (i/cellsize) * gridSizex + (j/cellsize) ));
+				}else if((i%cellsize == 1 && j%cellsize == 2)){
+					printf("%d", (1 + (i/cellsize) * gridSizex + (j/cellsize)));
         }else if (i%cellsize == 2 && j%cellsize == 2){
         	printf("%c ", grid[(i/cellsize)*gridSizex +(j/cellsize)].Material[0]);
-				}else if(i%cellsize == 3 && j%cellsize == 2){
-					printf("P ");
+				}else if (i%cellsize == 3 && j%cellsize == 2){
+        	printf("%d ", grid[(i/cellsize)*gridSizex +(j/cellsize)].Building);
         }else{
 					printf("  ");
 					}
@@ -46,8 +48,6 @@ void print_map(int gridSizex, int gridSizey, UNIT *grid)
 @param map estrutura com dimensoes x e y do mapa.
 */
 void atribuir_valores_ini(UNIT *grid, MAP_CONFIG map, ini_t *config){
-
-	grid = calloc((map.xdim * map.ydim), sizeof(UNIT)); //Isto aloca a grid com as estruturas UNIT la dentro*/
 	char casa[3];
 	char linha[12];
 	for(int i = 0; i<map.ydim; i++){ //Itera sobre a dimensao do mapa e atribui os valores que le da INI na grid*/
