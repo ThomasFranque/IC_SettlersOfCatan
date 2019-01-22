@@ -49,7 +49,11 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	delay(1);
 	printf(">hm...");
 	choiceInt = random(10);
-	choiceInt >= 3 ? choice = '1' : choice = '2';
+	if (choiceInt == 3){
+		choice = '1';
+	} else {
+		choice = '2';
+	}
 	delay(1);
 	printf(">%d",choice);
 	if (choice == '1') {
