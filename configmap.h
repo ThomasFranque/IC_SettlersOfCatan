@@ -2,11 +2,10 @@
 #define CONFIGMAP_H_INCLUDED
 typedef struct{
 /**Estrutura da unidade do mapa*/
-	char Building[2];
+	int Building;
 	char Material[3];
 	int Quantidade;
 	int Player;
-	int playerMat[5];
 }UNIT;
 
 typedef struct{

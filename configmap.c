@@ -22,7 +22,10 @@ void print_map(int gridSizex, int gridSizey, UNIT *grid)
         for(int j=0; j<=totaly; j++)
         {
         if(i % cellsize == 0 || j % cellsize == 0){
+
         	printf("* ");
+				}else if(i%cellsize == 1 && j%cellsize == 2){
+					printf("%d", (i/cellsize) * gridSizex + (j/cellzise));
         }else if (i%cellsize == 2 && j%cellsize == 2){
         	printf("%c ", grid[(i/cellsize)*gridSizex +(j/cellsize)]->Material[0]);
 				}else if(i%cellsize == 3 && j%cellsize == 2){
