@@ -38,15 +38,19 @@ int main(int argc, char **argv) {
 
 	getchar();
 	free(grid);
+
 	return 0;
 }
 
 /**
 @brief Esta funcao contem o loop principal do jogo
 */
-int Game_loop(UNIT *grid){
+int Game_loop(UNIT *grid, MAP_CONFIG map, UNIT *grid){
 	char choice;
 	int choiceInt;
+
+	int playerMaterials;
+	int playerPoints;
 
 	int aiMaterials;
 	int aiPoints;
@@ -59,26 +63,23 @@ int Game_loop(UNIT *grid){
 		while true{
 			printf("Your turn to roll player.\n>Inpun anything to Roll my son.");
 			getchar()
-				play();
+				play(map, grid);
 			printf("\nWhat do you want to do next?"
 				"Buy Village  .............. 1"
-				"Upgarade Village .......... 2"
-				"Check Inventory ........... 3"
-				"Bank ...................... 4"
-				"Continue .................. 5");
+				"Check Inventory ........... 2"
+				"Bank ...................... 3"
+				"Continue .................. 4");
 			scanf("%s", &choice);
 
 			switch (choice) {
-				/* Todas as funçoes estao no ficheiro game_logic */
+			/* Todas as funçoes estao no ficheiro game_logic */
 			case '1':
-				buy();
+				buy(map, grid, playerMaterials);
 			case '2':
-				upgrades();
+				inventory(playerMaterials);
 			case '3':
-				inventory();
+				bank(playerMaterials);
 			case '4':
-				bank();
-			case '5':
 				break;
 			default:
 				print(">WHAT DID YOU SAY? That's a very offensive word in Japunese");

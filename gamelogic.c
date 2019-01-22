@@ -281,7 +281,7 @@ void inventory (int *playerMaterials) {
 @param playerMaterials vetor com os materiais do jogador
 */
 int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
-	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/
+	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD( not any moar)*/
 	char choice;
 	int casa;
 	printf("Want a Village[1] or a City[2]?\nExit[3]\n");
