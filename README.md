@@ -16,7 +16,7 @@
   + FALTA AINDA COISAS
 ### Referencias
 ##### Bibliotecas usadas
-+ As bibliotecas utilizadas foram o <stdio.h>, <time.h>, <stdlib.h> e uma exterior <ini>[<-link](https://github.com/rxi/ini).
++ As bibliotecas utilizadas foram o <stdio.h>, <time.h>, <stdlib.h> e uma exterior [<ini.h>](https://github.com/rxi/ini).
 ##### Competencias
 + O "work flow" de trabalhar em equipa no mesmo projeto mas em partes separadas.
 + Melhor familiarizados com o GCC, C, git e doxygen.
