@@ -58,30 +58,26 @@ terrenos todos das cidades que se tem
 @param map xdim e ydim do mampa em estrutura MAP_CONFIG
 @param grid vetor de UNIT
 */
-int play (MAP_CONFIG map, UNIT *grid) {
+void play (MAP_CONFIG map, UNIT *grid, int *materiais) {
 
 	int turnNumber = roll();
-	int *gameCards = malloc(5*sizeof(int));
-	UNIT adjacentNumbers = calloc((map.xdim*map.ydim), sizeof(UNIT));
+	UNIT *adjacentNumbers = calloc((map.xdim*map.ydim), sizeof(UNIT));
 
-	adjacente_number(map, grid, &adjacentNumbers);
+	adjacente_number(map, grid, adjacentNumbers);
 	for(int i = 0; i<(int)( sizeof(adjacentNumbers)/ sizeof(UNIT) ); i++){
-		if (turnNumber == adjacentNumbers[i]->Quantidade){
-			if(strcmp(adjacentNumbers[i]->Material[0], "W"))
-				gameCards[0] += 1;
-			else if(strcmp(adjacentNumbers[i]->Material[0], "G"))
-				gameCards[1] += 1;
-			else if(strcmp(adjacentNumbers[i]->Material[0], "L"))
-				gameCards[2] += 1;
-			else if(strcmp(adjacentNumbers[i]->Material[0], "I"))
-				gameCards[3] += 1;
-			else if(strcmp(adjacentNumbers[i]->Material[0], "B"))
-				gameCards[4] += 1;
+		if (turnNumber == adjacentNumbers[i].Quantidade){
+			if(adjacentNumbers[i].Material[0] == 'W')
+				materiais[0] += 1;
+			else if(adjacentNumbers[i].Material[0] == 'G')
+				materiais[1] += 1;
+			else if(adjacentNumbers[i].Material[0] == 'L')
+				materiais[2] += 1;
+			else if(adjacentNumbers[i].Material[0] == 'I')
+				materiais[3] += 1;
+			else if(adjacentNumbers[i].Material[0] == 'B')
+				materiais[4] += 1;
 		}
 	}
-	printf("You won: \t+%d Wool.\n \t+%d Grain.\n \t+%d Log.\n \t+%d Steel.\n \t+%d Brick.", gameCards[0], gameCards[1], gameCards[2], gameCards[3], gameCards[4]);
-	free(&adjacentNumbers);
-	return gameCards;
 }
 
 /*100% Workingvvvvv*/
@@ -90,7 +86,7 @@ int play (MAP_CONFIG map, UNIT *grid) {
 @brief Funcao bank recebe os materiais do player e realiza as trocas desejadas
 @param playerMaterials vetor de int com a informacao dos materiais do player
 */
-void bank (int *playerMaterials) {
+void bank (int *playerMaterials, int *points) {
 
 	char choice = '0';
 	printf("Debug\n");
@@ -277,7 +273,7 @@ void inventory (int *playerMaterials) {
 @param grid vetor de UNIT que tem a informacao do mapa
 @param playerMaterials vetor com os materiais do jogador
 */
-int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
+void buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD( not any moar)*/
 	char choice;
 	int casa;
@@ -288,7 +284,7 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		printf("WHere do you want to build your new Village? (Insert house number)\n");
 		scanf("%d", &casa);
 
-		if (adjacentes(map, &grid, casa) != 0) {
+		if (adjacente(map, grid, casa) != 0) {
 			if (playerMaterials[4] >= 1 && playerMaterials[2] >= 1 && playerMaterials[1] >= 1 && playerMaterials[0] >= 1) {
 				playerMaterials[4] -= 1;
 				printf("Brick:%d \n", playerMaterials[4]);
@@ -326,5 +322,4 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	else {
 		printf("Unknown Option");
 	}
-	return playerMaterials;
 }

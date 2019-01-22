@@ -30,7 +30,7 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 		while (1){
 			printf("Your turn to roll player.\n>Inpun anything to Roll my son.");
 			getchar();
-			play(map, grid);
+			play(map, grid, playerMaterials);
 			printf("\nWhat do you want to do next?"
 				"Buy Village  .............. 1"
 				"Check Inventory ........... 2"
@@ -45,15 +45,16 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 			case '2':
 				inventory( playerMaterials);
 			case '3':
-				bank( playerMaterials);
+				bank( playerMaterials, &playerPoints);
 			case '4':
 				break;
 			default:
 				printf(">WHAT DID YOU SAY? That's a very offensive word in Japunese");
 			}
 
-			ai(aiMaterials, aiPoints);
-
+			ai(aiMaterials, map, grid);
+			if(random(10)>8)
+				aiPoints += 1;
 			if (playerPoints >= 6){
 				printf("You Win!!");
 				break;
