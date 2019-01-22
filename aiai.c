@@ -1,16 +1,18 @@
 #include <studio.h>
 #include <gamelogic.h>
 #include <time.h>
-
+#include <random.h>
+/** @file*/
 //AI MATERIALS E AI POINTS
 
+/**
+@brief descobre se ha edificios adjacentes a casa escolhida
+@param map dimensoes de mapa do jogo
+@param grid informacao da grid do jogo
+@param casa celula do mapa
+*/
 int adjacenteAI(MAP_CONFIG map, UNIT grid, int casa) {
-	/**
-	@brief descobre se ha edificios adjacentes a casa escolhida
-	@param map dimensoes de mapa do jogo
-	@param grid informacao da grid do jogo
-	@param casa celula do mapa
-	*/
+
 	int y = casa % map.xdim;
 	int x = casa - (map.xdim*y);
 	for (int dx = -1; dx <= 1; ++dx) {
@@ -23,6 +25,7 @@ int adjacenteAI(MAP_CONFIG map, UNIT grid, int casa) {
 	return 0;
 }
 
+/** @brief Funcao de temporizador para suspanse dentro do jogo*/
 void delay(int number_of_seconds)
 {
 	// Converting time into milli_seconds
@@ -52,8 +55,13 @@ int random(int x) {
 	return i;
 }
 
+/** @brief Funcao para a compra do AI, para ser usada na funcao ai().
+@param map dimensoes do mapa xdim e ydim.
+@param grid vetor UNIT com o mapa.
+@param playerMaterials materiais do AI.
+*/
 int buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
-	/*NAO EST� DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/
+	/*NAO EST� DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/
 	char choice;
 	int choiceInt;
 	int casa;
@@ -110,6 +118,10 @@ int buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	return playerMaterials;
 }
 
+/** @brief Funcao que tem o turno do AI, para um turno é só chamar esta função
+@param aiMaterials vetor materiais à semelhança à do jogador.
+@param aiPoints numero de pontos do ai para  verificar se ganha.
+*/
 int ai(int aiMaterials, int aiPoints) {
 	int choice;
 	printf("It's JapAInese, the pun master turn!");

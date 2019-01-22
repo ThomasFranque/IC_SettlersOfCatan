@@ -15,7 +15,7 @@ typedef struct{
 }UNIT;
 
 
-/** MAP_CONFIG e a estrutura onde se guarda xdim e ydim do mapa */
+/** @brief MAP_CONFIG é a estrutura onde se guarda xdim e ydim do mapa */
 typedef struct{
 /**Dimensao x do mapa*/
 	int xdim;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.c']]]
+  ['inventory',['inventory',['../gamelogic_8c.html#ae3ff3910e44c00ce75a7bc6257f27677',1,'gamelogic.c']]]
 ];

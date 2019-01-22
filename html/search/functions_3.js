@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inventory',['inventory',['../gamelogic_8c.html#ae3ff3910e44c00ce75a7bc6257f27677',1,'gamelogic.c']]]
+  ['game_5floop',['Game_loop',['../main_8c.html#a651e371f52c05a8808f6937da8cc4e82',1,'main.c']]]
 ];
