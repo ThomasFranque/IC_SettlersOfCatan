@@ -51,7 +51,7 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	choiceInt = random(10);
 	choiceInt >= 3 ? choice = '1' : choice = '2';
 	delay(1);
-	printf(">%s",choice);
+	printf(">%d",choice);
 	if (choice == '1') {
 		/*Village*/
 		printf("WHere do you want to build your new Village? (Insert house number)\n");
