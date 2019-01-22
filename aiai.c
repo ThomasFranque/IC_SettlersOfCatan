@@ -48,7 +48,7 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	printf("Want a Village[1] or a City[2]?\nExit[3]\n");
 	delay(1);
 	printf(">hm...");
-	choiceInt = random(10);
+	choiceInt = rand() % 10;
 	if (choiceInt == 3){
 		choice = '1';
 	} else {
@@ -62,7 +62,7 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		printf("Want a Village[1] or a City[2]?\nExit[3]\n");
 		delay(1);
 		printf(">Let me think...");
-		casa = random(map.xdim*map.ydim);
+		casa = rand() % (map.xdim*map.ydim);
 		delay(1);
 		printf(">%d!", casa);
 
@@ -89,7 +89,7 @@ void buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 
 		delay(1);
 		printf(">Villages, hm...");
-		casa = random(map.xdim*map.ydim);
+		casa = rand() % (map.xdim*map.ydim);
 		delay(1);
 		printf(">I choose village %d.", casa);
 		if (grid[casa - 1].Building == 1) {
@@ -114,7 +114,7 @@ void ai(int *aiMaterials, MAP_CONFIG map, UNIT *grid) {
 	//
 	//
 	play(map, grid, aiMaterials); //receber os materiais
-	choice = random(10);
+	choice = rand() % 10;
 	if (choice >= 3) {
 		buyAI(map, grid, aiMaterials);
 	} else {

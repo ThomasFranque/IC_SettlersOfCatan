@@ -1,10 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "gamelogic.h"
 #include "ini.h"
 #include "configmap.h"
 #include "aiai.h"
+#include "diceroll.h"
 #define MAX 128
 /** @file*/
 
@@ -53,7 +55,7 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 			}
 
 			ai(aiMaterials, map, grid);
-			if(random(10)>8)
+			if((rand()%10)>8)
 				aiPoints += 1;
 			if (playerPoints >= 6){
 				printf("You Win!!");
