@@ -3,15 +3,16 @@
 #include "stdlib.h"
 #include "ini.h"
 #include "configmap.h"
-
+/** @file*/
+/**
+@brief print_map Desenha o mapa
+@param gridSizex tamanho x do mapa
+@param gridSizey tamanho y do mapa
+@param grid array do tipo UNIT que contem dados do mapa
+*/
 void print_map(int gridSizex, int gridSizey, UNIT *grid)
 {
-	/**
-	@brief Desenha o mapa
-	@param gridSizex tamanho x do mapa
-	@param gridSizey tamanho y do mapa
-	@param grid array do tipo UNIT que contem dados do mapa
-	*/
+
 		int cellsize = 4;
 		int totalx = gridSizex * cellsize; /**5 é o tamanho das células*/
 		int totaly = gridSizey * cellsize;
@@ -38,13 +39,14 @@ void print_map(int gridSizex, int gridSizey, UNIT *grid)
         printf("\n");
     }
 }
-	//funcao*/
+
+/**
+@brief atribuir_valores_ini funcao procura no ficheiro INI os valores e atribuios na grid, depois fecha o ficheiro.
+@param grid array do tipo UNIT para receber os valores lidos
+@param map estrutura com dimensoes x e y do mapa.
+*/
 void atribuir_valores_ini(UNIT *grid, MAP_CONFIG map){
-	/**
-	@brief Esta funcao procura no ficheiro INI os valores e atribuios na grid, depois fecha o ficheiro.
-	@param grid array do tipo UNIT para receber os valores lidos
-	@param map estrutura com dimensoes x e y do mapa.
-	*/
+
 	grid = calloc((map.xdim * map.ydim), sizeof(UNIT)); //Isto aloca a grid com as estruturas UNIT la dentro*/
 	char casa[3];
 	char linha[12];

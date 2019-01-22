@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+/** @file*/
+/** roll simples funcao que tira numeros aleatorios e adiciona-os*/
 int roll () {
 	int i, n, x,finalNumber;
 	int *dices;

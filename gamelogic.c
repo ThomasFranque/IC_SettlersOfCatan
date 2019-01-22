@@ -3,14 +3,16 @@
 #include "gamelogic.h"
 #include <string.h>
 #include <stdlib.h>
-
+#include "configmap.h"
+/** @file*/
+/**
+@brief adjacentes descobre se ha edificios adjacentes a casa escolhida
+@param map dimensoes de mapa do jogo
+@param grid informacao da grid do jogo
+@param casa celula do mapa
+*/
 int adjacente(MAP_CONFIG map, UNIT grid,int casa){
-	/**
-	@brief descobre se ha edificios adjacentes a casa escolhida
-	@param map dimensoes de mapa do jogo
-	@param grid informacao da grid do jogo
-	@param casa celula do mapa
-	*/
+
 	int y = casa % map.xdim;
 	int x = casa -(map.xdim*y);
 	for (int dx = -1; dx <= 1; ++dx){
@@ -23,13 +25,14 @@ int adjacente(MAP_CONFIG map, UNIT grid,int casa){
 	return 0;
 }
 
+/**
+@brief adjacentes_number descobre qual o numero do terreno adjacente a um edificio
+@param map dimensoes de mapa do jogo
+@param grid informacao da grid do jogo
+@param grid_adjacentes tipo UNIT que recebe as estruturas adjacentes
+*/
 void adjacente_number(MAP_CONFIG map, UNIT grid, UNIT *grid_adjacentes){
-	/**
-	@brief descobre qual o numero do terreno adjacente a um edificio
-	@param map dimensoes de mapa do jogo
-	@param grid informacao da grid do jogo
-	@param grid_adjacentes tipo UNIT que recebe as estruturas adjacentes
-	*/
+
 	for(int i =0; i< map.xdim*map.ydim; i++){
 		int y = i % map.xdim;
 		int x = i -(map.xdim*y);
@@ -43,13 +46,15 @@ void adjacente_number(MAP_CONFIG map, UNIT grid, UNIT *grid_adjacentes){
 	}
 }
 
+
+/**
+@brief Funcao que realiza a jogada inicial de lancar os dados e ir buscar os
+terrenos todos das cidades que se tem
+@param map xdim e ydim do mampa em estrutura MAP_CONFIG
+@param grid vetor de UNIT
+*/
 int play (MAP_CONFIG map, UNIT *grid) {
-	/**
-	@brief Funcao que realiza a jogada inicial de lancar os dados e ir buscar os
-	terrenos todos das cidades que se tem
-	@param map xdim e ydim do mampa em estrutura MAP_CONFIG
-	@param grid vetor de UNIT
-	*/
+
 	int turnNumber = roll();
 	int gameCards [5];
 	gameCards = [0,0,0,0,0];
@@ -77,11 +82,12 @@ int play (MAP_CONFIG map, UNIT *grid) {
 
 /*100% Workingvvvvv*/
 //inicializar funçao no main como: bank(playerMaterials,points); //points/playerMaterials é respetivo ao jogador que está a jogar
+/**
+@brief Funcao bank recebe os materiais do player e realiza as trocas desejadas
+@param playerMaterials vetor de int com a informacao dos materiais do player
+*/
 void bank (int *playerMaterials) {
-	/**
-	@brief Funcao bank recebe os materiais do player e realiza as trocas desejadas
-	@param playerMaterials vetor de int com a informacao dos materiais do player
-	*/
+
 	char choice = '0';
 	printf("Debug\n");
 
@@ -253,16 +259,18 @@ void bank (int *playerMaterials) {
 }
 /*^^^^^^^^^^^^*/
 
-int inventory (int *playerMaterials) {
-	/**
-	@brief mosta o inventario atual do jogador
-	@param playerMaterials vetor com os materiais do jogador
-	*/
+/**
+@brief mosta o inventario atual do jogador
+@param playerMaterials vetor com os materiais do jogador
+*/
+void inventory (int *playerMaterials) {
+
 	printf("\nYOUR INVENTORY \nWool: %d \nGrain: %d \nLog: %d \nSteel: %d \nBricky: %d", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
-	return 0;
 }
 
-//vvvvvvvvvvvvv algo de errado com o return vvvvvvvvvvvvvv
+/** @brief buy compra e atualiza valores dos materiais do jogador
+@param MAP_CONFIG
+*/
 int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 	/*NAO ESTÁ DINAMICO && NAO ESTA A USAR A STRUCT DO BOARD*/
 	char choice;

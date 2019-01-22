@@ -1,0 +1,126 @@
+\hypertarget{gamelogic_8c}{}\section{gamelogic.\+c File Reference}
+\label{gamelogic_8c}\index{gamelogic.c@{gamelogic.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}diceroll.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gamelogic.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}configmap.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gamelogic_8c_aad314618eef7d6811c12c0c0d9e1dc5a}{adjacente}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} grid, int casa)
+\begin{DoxyCompactList}\small\item\em adjacentes descobre se ha edificios adjacentes a casa escolhida \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gamelogic_8c_abdeb32638120fa1d491bf7260d757443}{adjacente\+\_\+number}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} grid, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid\+\_\+adjacentes)
+\begin{DoxyCompactList}\small\item\em adjacentes\+\_\+number descobre qual o numero do terreno adjacente a um edificio \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gamelogic_8c_ac49e4a7c1e883da0c61e1e7e6c5e9700}{play}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid)
+\begin{DoxyCompactList}\small\item\em Funcao que realiza a jogada inicial de lancar os dados e ir buscar os terrenos todos das cidades que se tem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gamelogic_8c_a3b2164f2b138d9c3f98acb6bbc231684}{bank}} (int $\ast$player\+Materials)
+\begin{DoxyCompactList}\small\item\em Funcao bank recebe os materiais do player e realiza as trocas desejadas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gamelogic_8c_ae3ff3910e44c00ce75a7bc6257f27677}{inventory}} (int $\ast$player\+Materials)
+\begin{DoxyCompactList}\small\item\em mosta o inventario atual do jogador \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gamelogic_8c_abc648c27cffcf9015696d0b6d2de3b15}{buy}} (\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, int $\ast$player\+Materials)
+\begin{DoxyCompactList}\small\item\em buy compra e atualiza valores dos materiais do jogador \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gamelogic_8c_aad314618eef7d6811c12c0c0d9e1dc5a}\label{gamelogic_8c_aad314618eef7d6811c12c0c0d9e1dc5a}} 
+\index{gamelogic.c@{gamelogic.c}!adjacente@{adjacente}}
+\index{adjacente@{adjacente}!gamelogic.c@{gamelogic.c}}
+\subsubsection{\texorpdfstring{adjacente()}{adjacente()}}
+{\footnotesize\ttfamily int adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}}}]{grid,  }\item[{int}]{casa }\end{DoxyParamCaption})}
+
+
+
+adjacentes descobre se ha edificios adjacentes a casa escolhida 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & dimensoes de mapa do jogo \\
+\hline
+{\em grid} & informacao da grid do jogo \\
+\hline
+{\em casa} & celula do mapa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gamelogic_8c_abdeb32638120fa1d491bf7260d757443}\label{gamelogic_8c_abdeb32638120fa1d491bf7260d757443}} 
+\index{gamelogic.c@{gamelogic.c}!adjacente\_number@{adjacente\_number}}
+\index{adjacente\_number@{adjacente\_number}!gamelogic.c@{gamelogic.c}}
+\subsubsection{\texorpdfstring{adjacente\_number()}{adjacente\_number()}}
+{\footnotesize\ttfamily void adjacente\+\_\+number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}}}]{grid,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid\+\_\+adjacentes }\end{DoxyParamCaption})}
+
+
+
+adjacentes\+\_\+number descobre qual o numero do terreno adjacente a um edificio 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & dimensoes de mapa do jogo \\
+\hline
+{\em grid} & informacao da grid do jogo \\
+\hline
+{\em grid\+\_\+adjacentes} & tipo \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} que recebe as estruturas adjacentes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gamelogic_8c_a3b2164f2b138d9c3f98acb6bbc231684}\label{gamelogic_8c_a3b2164f2b138d9c3f98acb6bbc231684}} 
+\index{gamelogic.c@{gamelogic.c}!bank@{bank}}
+\index{bank@{bank}!gamelogic.c@{gamelogic.c}}
+\subsubsection{\texorpdfstring{bank()}{bank()}}
+{\footnotesize\ttfamily void bank (\begin{DoxyParamCaption}\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
+
+
+
+Funcao bank recebe os materiais do player e realiza as trocas desejadas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Materials} & vetor de int com a informacao dos materiais do player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gamelogic_8c_abc648c27cffcf9015696d0b6d2de3b15}\label{gamelogic_8c_abc648c27cffcf9015696d0b6d2de3b15}} 
+\index{gamelogic.c@{gamelogic.c}!buy@{buy}}
+\index{buy@{buy}!gamelogic.c@{gamelogic.c}}
+\subsubsection{\texorpdfstring{buy()}{buy()}}
+{\footnotesize\ttfamily int buy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
+
+
+
+buy compra e atualiza valores dos materiais do jogador 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gamelogic_8c_ae3ff3910e44c00ce75a7bc6257f27677}\label{gamelogic_8c_ae3ff3910e44c00ce75a7bc6257f27677}} 
+\index{gamelogic.c@{gamelogic.c}!inventory@{inventory}}
+\index{inventory@{inventory}!gamelogic.c@{gamelogic.c}}
+\subsubsection{\texorpdfstring{inventory()}{inventory()}}
+{\footnotesize\ttfamily void inventory (\begin{DoxyParamCaption}\item[{int $\ast$}]{player\+Materials }\end{DoxyParamCaption})}
+
+
+
+mosta o inventario atual do jogador 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Materials} & vetor com os materiais do jogador \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gamelogic_8c_ac49e4a7c1e883da0c61e1e7e6c5e9700}\label{gamelogic_8c_ac49e4a7c1e883da0c61e1e7e6c5e9700}} 
+\index{gamelogic.c@{gamelogic.c}!play@{play}}
+\index{play@{play}!gamelogic.c@{gamelogic.c}}
+\subsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily int play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Funcao que realiza a jogada inicial de lancar os dados e ir buscar os terrenos todos das cidades que se tem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & xdim e ydim do mampa em estrutura \mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} \\
+\hline
+{\em grid} & vetor de \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} \\
+\hline
+\end{DoxyParams}

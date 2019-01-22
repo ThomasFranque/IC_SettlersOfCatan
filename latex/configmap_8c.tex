@@ -1,0 +1,54 @@
+\hypertarget{configmap_8c}{}\section{configmap.\+c File Reference}
+\label{configmap_8c}\index{configmap.c@{configmap.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ini.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}configmap.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{configmap_8c_adc6e933e1f394865d9e3ba794354dbbc}{print\+\_\+map}} (int grid\+Sizex, int grid\+Sizey, \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid)
+\begin{DoxyCompactList}\small\item\em print\+\_\+map Desenha o mapa \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{configmap_8c_a09082efc704c384e6c9863ed1fdcb2d7}{atribuir\+\_\+valores\+\_\+ini}} (\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$grid, \mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}} map)
+\begin{DoxyCompactList}\small\item\em atribuir\+\_\+valores\+\_\+ini funcao procura no ficheiro I\+NI os valores e atribuios na grid, depois fecha o ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{configmap_8c_a09082efc704c384e6c9863ed1fdcb2d7}\label{configmap_8c_a09082efc704c384e6c9863ed1fdcb2d7}} 
+\index{configmap.c@{configmap.c}!atribuir\_valores\_ini@{atribuir\_valores\_ini}}
+\index{atribuir\_valores\_ini@{atribuir\_valores\_ini}!configmap.c@{configmap.c}}
+\subsubsection{\texorpdfstring{atribuir\_valores\_ini()}{atribuir\_valores\_ini()}}
+{\footnotesize\ttfamily void atribuir\+\_\+valores\+\_\+ini (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid,  }\item[{\mbox{\hyperlink{struct_m_a_p___c_o_n_f_i_g}{M\+A\+P\+\_\+\+C\+O\+N\+F\+IG}}}]{map }\end{DoxyParamCaption})}
+
+
+
+atribuir\+\_\+valores\+\_\+ini funcao procura no ficheiro I\+NI os valores e atribuios na grid, depois fecha o ficheiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & array do tipo \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} para receber os valores lidos \\
+\hline
+{\em map} & estrutura com dimensoes x e y do mapa. \\
+\hline
+\end{DoxyParams}
+fechar ini \mbox{\Hypertarget{configmap_8c_adc6e933e1f394865d9e3ba794354dbbc}\label{configmap_8c_adc6e933e1f394865d9e3ba794354dbbc}} 
+\index{configmap.c@{configmap.c}!print\_map@{print\_map}}
+\index{print\_map@{print\_map}!configmap.c@{configmap.c}}
+\subsubsection{\texorpdfstring{print\_map()}{print\_map()}}
+{\footnotesize\ttfamily void print\+\_\+map (\begin{DoxyParamCaption}\item[{int}]{grid\+Sizex,  }\item[{int}]{grid\+Sizey,  }\item[{\mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+print\+\_\+map Desenha o mapa 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Sizex} & tamanho x do mapa \\
+\hline
+{\em grid\+Sizey} & tamanho y do mapa \\
+\hline
+{\em grid} & array do tipo \mbox{\hyperlink{struct_u_n_i_t}{U\+N\+IT}} que contem dados do mapa \\
+\hline
+\end{DoxyParams}
+5 é o tamanho das células 

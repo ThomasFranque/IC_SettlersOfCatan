@@ -5,7 +5,12 @@
 #include "ini.h"
 #include "configmap.h"
 #define MAX 128
-
+/** @file*/
+/**
+@brief O jogo de tabuleiro Settlers of Catan modificado para peças quadradas, ver README.MD para mais informacao sobre como funciona
+@param argc numero de argumentos dados ao main
+@param argv vetor com os argumentos passados ao main
+*/
 int main(int argc, char **argv) {
 	MAP_CONFIG map;
 	UNIT grid;
@@ -29,22 +34,26 @@ int main(int argc, char **argv) {
 	printf("Opening Map with dimensions---->X: %d Y: %d\n", map.xdim, map.ydim);
 
 	print_unit(map.xdim, map.ydim, grid);
+
 	getchar();
 	free(grid);
 	return 0;
 }
 
-int looop(){
+/**
+@brief Esta funcao contem o loop principal do jogo
+*/
+int Game_loop(){
 	int choice
+	printf("Hello, "); 	/*FALTA A PUTA DE UMA MENSAGEM AQUI TOMAS, EU NAO TE PAGO PARA ISTO*/
 	while true:
-		printf("Hello, fancy welcome msg here")
 		printf( "What do you want to do? %d"
 			"Buy Village  .............. 1"
 	      		"Upgarade Village .......... 2"
 			"Check Inventory ........... 3"
 	       		"Bank ...................... 4"
 	       		"Roll Dice ................. 5" );
-		scanf("\n %s", choice);
+		scanf("\n %d", choice);
 
 		switch(choice){
 			/* Todas as funçoes estao no ficheiro game_logic */
