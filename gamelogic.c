@@ -3,24 +3,7 @@
 #include "gamelogic.h"
 #include <string.h>
 #include <stdlib.h>
-/*
-@turnNumber = resultado final dos dados
-@adjacentNumbers = placeholder para as casas adjacentes provavelmente vai ser preciso um for statement
-@gameCards = o que o jogador ganhou este turno
-gameCards[0] = wool
-gameCards[1] = grain
-/////////[2] = log
-/////////[3] = steel
-/////////[4] = bricky
-@playerMaterials = mesmo que o gameCards mas contem tudo
-@locales = nada, cidades e vilas:
-Se locales[a] = 0 = NADA
-Se locales[b] = 1 = Vila do P1
-Se locales[c] = 2 = Cidade do P1
-Se locales[d] = 3 = Vila do P2
-Se locales[e] = 4 = Cidade do P2
-Ex de Locales: 04301200
-*/
+
 int adjacente(MAP_CONFIG map, UNIT grid,int casa){
 	/**
 	@brief descobre se ha edificios adjacentes a casa escolhida
@@ -81,7 +64,7 @@ int play (MAP_CONFIG map, UNIT *grid) {
 				gameCards[1] += 1;
 			else if(strcmp(adjacentNumbers[i].Material[0], "L"))
 				gameCards[2] += 1;
-			else if(strcmp(adjacentNumbers[i].Material[0], "S"))
+			else if(strcmp(adjacentNumbers[i].Material[0], "I"))
 				gameCards[3] += 1;
 			else if(strcmp(adjacentNumbers[i].Material[0], "B"))
 				gameCards[4] += 1;
@@ -95,6 +78,10 @@ int play (MAP_CONFIG map, UNIT *grid) {
 /*100% Workingvvvvv*/
 //inicializar funçao no main como: bank(playerMaterials,points); //points/playerMaterials é respetivo ao jogador que está a jogar
 void bank (int *playerMaterials) {
+	/**
+	@brief Funcao bank recebe os materiais do player e realiza as trocas desejadas
+	@param playerMaterials vetor de int com a informacao dos materiais do player
+	*/
 	char choice = '0';
 	printf("Debug\n");
 
@@ -102,8 +89,6 @@ void bank (int *playerMaterials) {
 
 	printf("\nWant to trade in Materials[1]?\nExit[2]\n");
 	scanf("%s", &choice);
-
-
 	if (choice == '1'){
         //player wants to trade materials
     		printf("Want a Point[1] or another Material[2]?\n");
@@ -289,10 +274,6 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		printf("WHere do you want to build your new Village? (Insert house number)\n");
 		scanf("%d", &casa);
 
-		//debug
-		printf("Casa = %d \nLocales = %d \n", casa, *locales);
-		printf("\nWool _____ %d \n Grain ____ %d \n Log ______ %d \n Steel ____ %d \n Brick ____ %d \n", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
-		//
 		if (adjacentes(map, grid, casa) != 0) {
 			if (playerMaterials[4] >= 1 && playerMaterials[2] >= 1 && playerMaterials[1] >= 1 && playerMaterials[0] >= 1) {
 				playerMaterials[4] -= 1;
@@ -303,7 +284,7 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 				printf("Grain:%d \n", playerMaterials[1]);
 				playerMaterials[0] -= 1;
 				printf("Wool:%d \n", playerMaterials[0]);
-				locales[casa - 1] = 1;
+				grid[casa-1]->Building = 1;
 				printf("Success!");
 			}
 			else {
@@ -319,7 +300,7 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		printf("Choose a village to upgrade. (Insert house number)\n");
 		scanf("%d", &casa);
 		if (grid[casa - 1]->Building == 1) {
-			grid[casa-1]->Building = 2
+			grid[casa-1]->Building = 2;
 			printf("Yes");
 		}
 

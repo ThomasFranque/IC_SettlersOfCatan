@@ -22,11 +22,11 @@
 + Melhor familiarizados com o GCC, C, git e doxygen.
 + Criação de um "Makefile" funcional.
 + Como jogar Settlers of Catan.
-+ Que ficheiros .ini são dores de cabeça.
++ Que ficheiros .ini são dores de cabeça quando não estão corretamente formatados.
 ##### Manual de Utilizador
 + Na consola, quando no diretorio do jogo, fazer o comando _$make_ para gerar uma build do jogo.
 + Para limpar essa build basta executar o comando _$make clean_
-+ Para iniciar o jogo basta executar o comando, com a build feita, _$./SOMETHING ALTERAR ISTO <--------------------_
++ Para iniciar o jogo basta executar o comando, com a build feita, _$./SettlersOfJapun_
 ##### Troca de Ideias
 + Brick = Brick
   Lumber = Log (for pun purposes)
