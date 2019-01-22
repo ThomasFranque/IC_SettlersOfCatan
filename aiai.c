@@ -122,7 +122,7 @@ int buyAI(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 @param aiMaterials vetor materiais à semelhança à do jogador.
 @param aiPoints numero de pontos do ai para  verificar se ganha.
 */
-int ai(int aiMaterials, int aiPoints) {
+int ai(int *aiMaterials, int aiPoints) {
 	int choice;
 	printf("It's JapAInese, the pun master turn!");
 	delay(1);

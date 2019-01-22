@@ -1,11 +1,11 @@
 #ifndef CONFIGMAP_H_INCLUDED
 #define CONFIGMAP_H_INCLUDED
-
+#include "ini.h"
 /**
 @brief UNIT Unidade ou Casa do mapa
 esta estrutura e usada em todo o programa para multiplas funcoes.
 */
-typedef struct{
+typedef struct UNIT{
 /** Building inteiro com a informacao do edificio construido nesta celula (0 a 4)*/
 	int Building;
 /** Material vetor com a informacao lida da INI, posicao 0 contem o material do terreno*/
@@ -24,5 +24,5 @@ typedef struct{
 } MAP_CONFIG;
 
 void print_map(int gridSizex, int gridSizey, UNIT *grid);
-void atribuir_valores_ini(UNIT *grid, MAP_CONFIG map);
+void atribuir_valores_ini(UNIT *grid, MAP_CONFIG map, ini_t *config);
 #endif

@@ -3,8 +3,6 @@
 Esta é a documentação para o projeto final da cadeira Introdução a Computação da universidade lusofona de Lisboa
 
 */
-
-
 #include <stdio.h>
 #include "diceroll.h"
 #include "gamelogic.h"
@@ -18,7 +16,7 @@ Esta é a documentação para o projeto final da cadeira Introdução a Computa�
 @param grid informacao da grid do jogo
 @param casa celula do mapa
 */
-int adjacente(MAP_CONFIG map, UNIT grid,int casa){
+int adjacente(MAP_CONFIG map, UNIT *grid,int casa){
 
 	int y = casa % map.xdim;
 	int x = casa -(map.xdim*y);
@@ -38,7 +36,7 @@ int adjacente(MAP_CONFIG map, UNIT grid,int casa){
 @param grid informacao da grid do jogo
 @param grid_adjacentes tipo UNIT que recebe as estruturas adjacentes
 */
-void adjacente_number(MAP_CONFIG map, UNIT grid, UNIT *grid_adjacentes){
+void adjacente_number(MAP_CONFIG map, UNIT *grid, UNIT *grid_adjacentes){
 
 	for(int i =0; i< map.xdim*map.ydim; i++){
 		int y = i % map.xdim;
@@ -63,27 +61,26 @@ terrenos todos das cidades que se tem
 int play (MAP_CONFIG map, UNIT *grid) {
 
 	int turnNumber = roll();
-	int gameCards [5];
-	gameCards = [0,0,0,0,0];
+	int *gameCards = malloc(5*sizeof(int));
 	UNIT adjacentNumbers = calloc((map.xdim*map.ydim), sizeof(UNIT));
 
-	adjacente_number(map, grid, adjacentNumbers);
+	adjacente_number(map, grid, &adjacentNumbers);
 	for(int i = 0; i<(int)( sizeof(adjacentNumbers)/ sizeof(UNIT) ); i++){
-		if (turnNumber == adjacentNumbers[i].Quantidade){
-			if(strcmp(adjacentNumbers[i].Material[0], "W"))
+		if (turnNumber == adjacentNumbers[i]->Quantidade){
+			if(strcmp(adjacentNumbers[i]->Material[0], "W"))
 				gameCards[0] += 1;
-			else if(strcmp(adjacentNumbers[i].Material[0], "G"))
+			else if(strcmp(adjacentNumbers[i]->Material[0], "G"))
 				gameCards[1] += 1;
-			else if(strcmp(adjacentNumbers[i].Material[0], "L"))
+			else if(strcmp(adjacentNumbers[i]->Material[0], "L"))
 				gameCards[2] += 1;
-			else if(strcmp(adjacentNumbers[i].Material[0], "I"))
+			else if(strcmp(adjacentNumbers[i]->Material[0], "I"))
 				gameCards[3] += 1;
-			else if(strcmp(adjacentNumbers[i].Material[0], "B"))
+			else if(strcmp(adjacentNumbers[i]->Material[0], "B"))
 				gameCards[4] += 1;
 		}
 	}
 	printf("You won: \t+%d Wool.\n \t+%d Grain.\n \t+%d Log.\n \t+%d Steel.\n \t+%d Brick.", gameCards[0], gameCards[1], gameCards[2], gameCards[3], gameCards[4]);
-	free(adjacentNumbers);
+	free(&adjacentNumbers);
 	return gameCards;
 }
 
@@ -291,7 +288,7 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		printf("WHere do you want to build your new Village? (Insert house number)\n");
 		scanf("%d", &casa);
 
-		if (adjacentes(map, grid, casa) != 0) {
+		if (adjacentes(map, &grid, casa) != 0) {
 			if (playerMaterials[4] >= 1 && playerMaterials[2] >= 1 && playerMaterials[1] >= 1 && playerMaterials[0] >= 1) {
 				playerMaterials[4] -= 1;
 				printf("Brick:%d \n", playerMaterials[4]);
@@ -301,7 +298,7 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 				printf("Grain:%d \n", playerMaterials[1]);
 				playerMaterials[0] -= 1;
 				printf("Wool:%d \n", playerMaterials[0]);
-				grid[casa-1]->Building = 1;
+				grid[casa-1].Building = 1;
 				printf("Success!");
 			}
 			else {
@@ -316,8 +313,8 @@ int buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 		/*City*/
 		printf("Choose a village to upgrade. (Insert house number)\n");
 		scanf("%d", &casa);
-		if (grid[casa - 1]->Building == 1) {
-			grid[casa-1]->Building = 2;
+		if (grid[casa - 1].Building == 1) {
+			grid[casa-1].Building = 2;
 			printf("Yes");
 		}
 
