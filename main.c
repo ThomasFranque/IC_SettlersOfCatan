@@ -38,7 +38,7 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 			clrscr();
 			printf("\n");
 			print_map(map.xdim, map.ydim, grid);
-			printf("Your turn to roll player.\n>Inpun anything to Roll my son.");
+			printf("Your turn to roll player. Inpun anything to Roll my son.");
 			getchar();
 			play(map, grid, playerMaterials);
 			printf("\nWhat do you want to do next?\n"
@@ -50,16 +50,19 @@ void Game_loop(UNIT *grid, MAP_CONFIG map){
 
 			switch (choice) {
 			/* Todas as funçoes estao no ficheiro game_logic */
-			case '1':
-				buy(map, grid, playerMaterials);
-			case '2':
-				inventory( playerMaterials);
-			case '3':
-				playerPoints = bank( playerMaterials, playerPoints);
-			case '4':
-				break;
-			default:
-				printf(">WHAT DID YOU SAY? That's a very offensive word in Japunese\n");
+				case '1':
+					buy(map, grid, playerMaterials);
+					break;
+				case '2':
+					inventory( playerMaterials);
+					break;
+				case '3':
+					playerPoints = bank( playerMaterials, playerPoints);
+					break;
+				case '4':
+					break;
+				default:
+					printf(">WHAT DID YOU SAY? That's a very offensive word in Japunese\n");
 			}
 
 			ai(aiMaterials, map, grid);

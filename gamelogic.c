@@ -264,7 +264,7 @@ int bank (int *playerMaterials, int points) {
 */
 void inventory (int *playerMaterials) {
 
-	printf("\nYOUR INVENTORY \nWool: %d \nGrain: %d \nLog: %d \nSteel: %d \nBricky: %d", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
+	printf("\nYOUR INVENTORY \nWool: %d \nGrain: %d \nLog: %d \nSteel: %d \nBricky: %d\n", playerMaterials[0], playerMaterials[1], playerMaterials[2], playerMaterials[3], playerMaterials[4]);
 }
 
 /** @brief buy compra e atualiza valores dos materiais do jogador
@@ -294,14 +294,14 @@ void buy(MAP_CONFIG map, UNIT *grid, int *playerMaterials) {
 				playerMaterials[0] -= 1;
 				printf("Wool:%d \n", playerMaterials[0]);
 				grid[casa-1].Building = 1;
-				printf("Success!");
+				printf("Success!\n");
 			}
 			else {
-				printf("\nYou don't have enough materials.");
+				printf("You don't have enough materials.\n");
 			}
 		}
 		else {
-			printf("Not a valid position...");
+			printf("Not a valid position...\n");
 		}
 	}
 	else if (choice == '2') {
